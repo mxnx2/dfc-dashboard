@@ -926,8 +926,12 @@ const api = {
     if (!DEMO) { const { error } = await sb.from("profiles").update(patch).eq("user_id", S.user.id); if (error) throw error; }
     Object.assign(S.profile, patch);
   },
-  async loadAdmin(){
-    if (DEMO) { S.adm = S.adm || demoAdmin(); return; }
+  // one load at a time; the page keeps showing the old data until the new data is complete
+  loadAdmin(){
+    if (DEMO) { S.adm = S.adm || demoAdmin(); return Promise.resolve(); }
+    return api._ld || (api._ld = api._loadAdmin().finally(() => api._ld = null));
+  },
+  async _loadAdmin(){
     // the API returns at most 1,000 rows per request: read big tables in pages (newest 20k)
     const pageAll = async (q, max = 20000) => { const out = []; for (let i = 0; i < max; i += 1000) { const r = await q().range(i, i + 999); if (r.error) return r; out.push(...r.data); if (r.data.length < 1000) break; } return { data:out }; };
     const [p, a, l, s, t, al, sg, py, ig] = await Promise.all([
@@ -942,14 +946,16 @@ const api = {
       sb.from("alert_ignores").select("key")
     ]);
     const err = [p,a,l,s,t,al,sg,py,ig].find(x => x.error); if (err) toast("Could not load admin data: " + err.error.message);
-    S.adm = { users:p.data || [], accounts:a.data || [], links:l.data || [], setups:s.data || [], trades:t.data || [], alerts:al.data || [], lastSignal:((sg.data || [])[0] || {}).created_at, payments:py.data || [], ignores:(ig.data || []).map(x => x.key) };
+    const adm = { users:p.data || [], accounts:a.data || [], links:l.data || [], setups:s.data || [], trades:t.data || [], alerts:al.data || [], lastSignal:((sg.data || [])[0] || {}).created_at, payments:py.data || [], ignores:(ig.data || []).map(x => x.key) };
+    // slow-changing data is reused: price history for 1 min, macro data for 30 min
+    const old = S.adm || {}, now = Date.now(), keepPx = old.prices && now - (old._pxAt || 0) < 6e4, keepMac = old.macro && Object.keys(old.macro).length && now - (old._macAt || 0) < 18e5, none = Promise.resolve({ data:null });
     // sentiment + live price (tables from v7; missing tables just leave these empty)
     const week = new Date(Date.now() - 7 * 864e5).toISOString(), [nw, evs, br, qt, pr, src, ru, rvw, ch, ais, aia, ain, mac] = await Promise.all([
       sb.from("news").select("*").gte("created_at", week).order("id",{ascending:false}).limit(1000),
       sb.from("events").select("*").gte("at", new Date(Date.now() - 180 * 864e5).toISOString()).order("at").limit(1000),
       sb.from("briefs").select("*").order("day",{ascending:false}).limit(7),
       sb.from("quotes").select("*"),
-      pageAll(() => sb.from("price_history").select("ts,price").eq("symbol","XAUUSD").gte("ts", new Date(Date.now() - 30 * 864e5).toISOString()).order("ts"), 10000),
+      keepPx ? none : pageAll(() => sb.from("price_history").select("ts,price").eq("symbol","XAUUSD").gte("ts", new Date(Date.now() - 30 * 864e5).toISOString()).order("ts"), 10000),
       sb.from("news_sources").select("*").order("id"),
       sb.from("score_rules").select("*").order("id"),
       sb.from("ai_reviews").select("*").order("id",{ascending:false}).limit(30),
@@ -957,10 +963,11 @@ const api = {
       sb.from("ai_settings").select("*").maybeSingle(),
       sb.from("ai_actions").select("*").order("id",{ascending:false}).limit(30),
       sb.from("ai_notes").select("*"),
-      pageAll(() => sb.from("macro_series").select("series,d,v").gte("d", dayKey(Date.now() - 3 * 365 * 864e5)).order("d"), 40000)
+      keepMac ? none : pageAll(() => sb.from("macro_series").select("series,d,v").gte("d", dayKey(Date.now() - 3 * 365 * 864e5)).order("d"), 40000)
     ]);
-    const macro = {}; (mac.data || []).forEach(r => (macro[r.series] = macro[r.series] || []).push([r.d, Number(r.v)]));
-    Object.assign(S.adm, { news:nw.data || [], events:evs.data || [], briefs:br.data || [], quote:(qt.data || []).find(q => q.symbol === "XAUUSD") || null, prices:pr.data || [], sources:src.data || [], rules:ru.data || [], reviews:rvw.data || [], chat:(ch.data || []).reverse(), aiSettings:ais.data || null, aiActions:aia.data || [], aiNotes:ain.data || [], macro });
+    let macro = old.macro; if (!keepMac) { macro = {}; (mac.data || []).forEach(r => (macro[r.series] = macro[r.series] || []).push([r.d, Number(r.v)])); }
+    S.adm = Object.assign(adm, { news:nw.data || [], events:evs.data || [], briefs:br.data || [], quote:(qt.data || []).find(q => q.symbol === "XAUUSD") || null, prices:keepPx ? old.prices : pr.data || [], sources:src.data || [], rules:ru.data || [], reviews:rvw.data || [], chat:(ch.data || []).reverse(), aiSettings:ais.data || null, aiActions:aia.data || [], aiNotes:ain.data || [], macro,
+      _pxAt:keepPx ? old._pxAt : now, _macAt:keepMac ? old._macAt : now });
   },
   async setStrategyStatus(sid, st){
     if (!DEMO) { const { error } = await sb.rpc("admin_set_strategy_status", { sid, st }); if (error) throw error; if (st === "active") await sb.from("strategies").update({ paused_until:null }).eq("id", sid); }
@@ -1197,7 +1204,7 @@ async function tick(){
   const ae = document.activeElement;
   const editing = ae && /INPUT|TEXTAREA|SELECT/.test(ae.tagName) && ae.id !== "accSel";
   if (["overview","trades","signals","strategies","accounts"].includes(S.page) && !editing) renderPage();
-  if (S.page.startsWith("admin")) { await api.loadAdmin(); bell(); if (!editing && $("modal").hidden) (({"admin-users":renderUserList,"admin-stats":renderStatsBody})[S.page] || renderPage)(); }
+  if (S.page.startsWith("admin")) { const pg = S.page; await api.loadAdmin(); bell(); if (pg === S.page && !editing && $("modal").hidden) { const y = scrollY; (({"admin-users":renderUserList,"admin-stats":renderStatsBody})[S.page] || renderPage)(); scrollTo(0, y); } }
 }
 
 // ---------- sidebar & navigation ----------
