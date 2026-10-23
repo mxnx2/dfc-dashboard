@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>DFC Signals Dashboard</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Archivo:wdth,wght@100..125,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <style>
-:root{--bg:#09080C;--card:#111318;--tile:#181A21;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.06);--text:#FFFFFF;--soft:#DDE3F2;--dim:#9AA3B8;--mut:#6B7280;--lav:#C9B8FF;--violet:#9B8CFF;--indigo:#6C5CFF;--mint:#3DF5B0;--rose:#FF6B81;--amber:#E3B565;--f-disp:'Outfit',system-ui,sans-serif;--f-body:'Hanken Grotesk',system-ui,sans-serif;--f-mono:'JetBrains Mono',ui-monospace,monospace;--sbw:244px;--r:22px;color-scheme:dark}
+:root{--bg:#09080C;--card:#111318;--tile:#181A21;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.06);--text:#FFFFFF;--soft:#DDE3F2;--dim:#9AA3B8;--mut:#6B7280;--lav:#C9B8FF;--violet:#9B8CFF;--indigo:#6C5CFF;--mint:#3DF5B0;--rose:#FF6B81;--amber:#E3B565;--f-disp:'Unbounded',system-ui,sans-serif;--f-body:'Archivo',system-ui,sans-serif;--f-mono:'JetBrains Mono',ui-monospace,monospace;--sbw:244px;--r:22px;color-scheme:dark}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
 body{font-family:var(--f-body);color:var(--text);font-size:14px;line-height:1.45}
@@ -399,7 +399,7 @@ button.chk:hover .grow{color:#fff}
 .mini4 b{font-family:var(--f-disp);font-weight:600;font-size:16px;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .curve{position:relative;height:64px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,.025),transparent);border:1px solid rgba(255,255,255,.05);overflow:hidden}
 .curve svg{position:absolute;inset:0;width:100%;height:100%}
-.curve .cl{position:absolute;left:10px;top:7px;font-size:10.5px;color:var(--mut);letter-spacing:.06em;text-transform:uppercase}
+.curve .cl{position:absolute;z-index:1;left:10px;top:6px;font-size:10.5px;color:var(--mut);letter-spacing:.06em;text-transform:uppercase}
 .drop{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;border:1px dashed rgba(201,184,255,.3);background:linear-gradient(160deg,rgba(139,108,255,.08),transparent)}
 .chk-d{border:0;padding:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none}
 .chk-d>summary{list-style:none;cursor:pointer}
@@ -413,6 +413,44 @@ button.chk:hover .grow{color:#fff}
 .rb i.us{background:linear-gradient(180deg,#FFD0EE,#FF8BD8 55%,#B2449A);box-shadow:0 0 14px rgba(255,139,216,.35)}
 .grid6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
 .acts{display:inline-flex;gap:6px;align-items:center}
+.lab{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8E86B0}
+.thb{background:none;border:0;padding:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;white-space:nowrap}
+.thb.on,.thb:hover{color:#fff}
+table.lb{min-width:1080px}
+.lbrow{cursor:pointer}
+.lbrow:hover td,.lbrow.on td{background:rgba(139,108,255,.08)}
+.trk{padding:10px 0;border-bottom:1px solid var(--line2);display:flex;flex-direction:column;gap:6px}
+.trk:last-child{border-bottom:0}
+.trkbar{position:relative;height:6px;border-radius:9px;background:linear-gradient(90deg,rgba(255,107,129,.6),rgba(255,255,255,.08) 50%,rgba(61,245,176,.6))}
+.trkbar i{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#fff;box-shadow:0 0 10px rgba(201,184,255,.8)}
+.lsvg{display:block;width:100%}
+.tight table{min-width:0}
+table.lb th,table.lb td{padding:10px 14px}
+table.lb td:nth-child(10),table.lb th:nth-child(10){min-width:96px;white-space:nowrap}
+.hmap table{min-width:760px;font-size:10.5px}
+.hmap th,.hmap td{padding:4px 2px;text-align:center}
+.hmap td{border:1px solid rgba(255,255,255,.03)}
+.sgauge{display:block;width:100%;max-width:230px;margin:0 auto}
+.tabs2{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:#191B22;border:1px solid var(--line2)}
+.tabs2 button{border:0;background:transparent;color:var(--dim);font:600 13px var(--f-body);padding:7px 16px;border-radius:999px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.tabs2 button.on{background:#F1EEF8;color:#0F0D15}
+.tabs2 b{min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--rose);color:#fff;font-size:10px;line-height:18px}
+.logrow{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line2);flex-wrap:wrap}
+.logrow:last-child{border-bottom:0}
+.logrow>.mut.xs:first-child{min-width:140px}
+.issue .chk{padding:0;border:0;width:auto}
+.chatbox{display:flex;flex-direction:column;gap:8px;max-height:300px;min-height:160px;overflow:auto;padding:12px;border-radius:14px;background:rgba(0,0,0,.25);border:1px solid var(--line2)}
+.chatbox>div{max-width:88%;padding:9px 12px;border-radius:14px;font-size:13px;line-height:1.5;white-space:pre-wrap}
+.msg-admin{align-self:flex-end;background:linear-gradient(180deg,#8B6CFF,#6C4CE6);color:#fff}
+.msg-ai{align-self:flex-start;background:rgba(255,255,255,.06);border:1px solid var(--line2);color:var(--soft)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.scorebar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.scorebar>div{display:grid;grid-template-columns:1fr 30px;gap:4px 8px;align-items:center}
+.scorebar .lp-bar{grid-column:1}
+.mc{display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:16px;border:1px dashed rgba(201,184,255,.25);background:linear-gradient(160deg,rgba(139,108,255,.06),transparent)}
+table.corr th,table.corr td{padding:8px 6px;font-size:12px}
+@media (max-width:640px){.scorebar{grid-template-columns:1fr 1fr}}
+.brief{white-space:pre-wrap;font-size:14px;line-height:1.6;color:var(--soft)}
 .acts .cell-sel{height:28px;color-scheme:dark}
 @media (max-width:1100px){
   .grid6{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -427,13 +465,74 @@ button.chk:hover .grow{color:#fff}
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
 }
+/* scoring: tabs bar, news banner, risk/market extras */
+#page-admin-scoring .w>.tbox:last-child,#page-admin-scoring .w>.list:last-child,#page-admin-scoring .w>.frame:last-child{flex:1}
+#page-admin-scoring .w>.frame:last-child{display:flex}#page-admin-scoring .w>.frame:last-child .lsvg{height:100%!important;min-height:90px}
+.grid5.fit .num{font-size:17px}
+.notes4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+#page-admin-scoring .w>.brief:last-child{flex:1}
+.evbar .grow{flex:1}.evbar .mut{color:rgba(255,236,214,.75)}
+.sbar{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:10px 12px;background:linear-gradient(100deg,rgba(139,108,255,.22),rgba(56,120,255,.08) 50%,rgba(61,245,176,.08)) padding-box,linear-gradient(90deg,rgba(201,184,255,.45),rgba(124,92,255,.15)) border-box}
+.sbar .tabs2{background:rgba(10,10,16,.55)}
+.tabs2 button.on{background:linear-gradient(135deg,#F1EEF8,#C9B8FF)}
+.evbar{flex-direction:row;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;background:linear-gradient(100deg,rgba(255,176,32,.22),rgba(255,107,129,.14) 45%,rgba(139,108,255,.12)) padding-box,linear-gradient(90deg,rgba(255,196,90,.6),rgba(255,107,129,.3)) border-box}
+.evdot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(255,176,32,.18)}
+.evdot.hot{background:var(--rose);box-shadow:0 0 0 4px rgba(255,107,129,.22);animation:pulse 1.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(255,107,129,0)}}
+.evt{font-weight:700;font-size:15px;background:linear-gradient(90deg,#FFD08A,#FF8FA3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vbar{height:8px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+.vbar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#3DF5B0,#E3B565 50%,#FF6B81)}
+.pnote{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:14px;background:linear-gradient(150deg,rgba(139,108,255,.14),rgba(56,120,255,.05));border:1px solid rgba(201,184,255,.14)}
+.why{display:block;margin-top:6px;padding:8px 10px;border-radius:10px;font-size:12.5px;line-height:1.5;color:#EDE8FF;background:linear-gradient(150deg,rgba(139,108,255,.22),rgba(56,120,255,.08))}
+table.opt td.best{outline:2px solid #3DF5B0;outline-offset:-2px;font-weight:700}
+table.opt td.cur{text-decoration:underline dotted}
+tr.tot td{font-weight:700;border-top:1px solid rgba(201,184,255,.3)}
+#page-admin-scoring .kt{background:linear-gradient(160deg,rgba(139,108,255,.13),rgba(18,18,24,.9) 60%);border-color:rgba(201,184,255,.12)}
+@media (max-width:760px){.sbar .seg,.sbar .tabs2{width:100%;overflow-x:auto;flex-wrap:nowrap}}
+.hc{position:relative;width:100%;cursor:crosshair}
+.hc svg{display:block;width:100%;height:100%}
+.hc-x{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.55),transparent);display:none;pointer-events:none}
+.hc-tip{position:absolute;bottom:calc(100% + 6px);display:none;flex-direction:column;gap:3px;padding:8px 10px;border-radius:12px;background:linear-gradient(160deg,rgba(60,48,110,.97),rgba(20,18,30,.98));border:1px solid rgba(201,184,255,.3);box-shadow:0 12px 26px rgba(0,0,0,.5);font-size:11.5px;white-space:nowrap;pointer-events:none;z-index:5}
+.hc-tip span{display:flex;align-items:center;gap:6px;color:var(--dim)}.hc-tip span i{width:8px;height:8px;border-radius:50%}.hc-tip b{color:#fff;font-weight:600}
+.hc.on .hc-x{display:block}.hc.on .hc-tip{display:flex}
+.mgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+@media (max-width:1250px){.mgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:900px){.mgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (max-width:560px){.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#page-admin-scoring .frame{display:flex;flex-direction:column;gap:6px}#page-admin-scoring .frame>.hc{flex:1 1 auto}
+.mt{gap:4px;overflow:visible}.mt .num{font-size:20px}.mt .hc{margin-top:4px}
+#page-admin-scoring .w{overflow:visible}
+/* glass + gradients everywhere */
+body{background:radial-gradient(55% 45% at 100% 0%,rgba(124,92,255,.38),transparent 60%),radial-gradient(45% 40% at 0% 100%,rgba(56,120,255,.24),transparent 60%),radial-gradient(35% 35% at 60% 55%,rgba(224,124,255,.14),transparent 70%),radial-gradient(30% 30% at 15% 20%,rgba(61,245,176,.08),transparent 70%),#07070B;background-attachment:fixed}
+.shell{background:linear-gradient(160deg,rgba(32,26,52,.62),rgba(10,10,16,.72) 45%,rgba(16,14,30,.7));backdrop-filter:blur(26px) saturate(140%);-webkit-backdrop-filter:blur(26px) saturate(140%)}
+.tile{background:linear-gradient(155deg,rgba(139,108,255,.12),rgba(255,255,255,.025) 45%,rgba(56,120,255,.06)) padding-box,linear-gradient(145deg,rgba(201,184,255,.22),rgba(255,255,255,.04) 50%,rgba(124,92,255,.16)) border-box;border:1px solid transparent;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.w::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,184,255,.55),transparent);pointer-events:none}
+.icon-btn{background:linear-gradient(160deg,rgba(139,108,255,.22),rgba(255,255,255,.04));border-color:rgba(201,184,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.field input,.field select,.field textarea,.cell-sel{background:linear-gradient(160deg,rgba(139,108,255,.08),rgba(255,255,255,.02)),rgba(12,12,18,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.tbox{background:linear-gradient(170deg,rgba(139,108,255,.07),rgba(255,255,255,.01) 40%,rgba(56,120,255,.04))}
+.seg,.tabs2{background:linear-gradient(160deg,rgba(139,108,255,.14),rgba(10,10,16,.55));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.seg button.on{background:linear-gradient(135deg,#F1EEF8,#C9B8FF)}
+.links button.on,.links button[aria-current]{background:linear-gradient(135deg,#F1EEF8,#C9B8FF)}
+.chip{background:linear-gradient(160deg,rgba(139,108,255,.16),rgba(255,255,255,.03))}
+#logoutBtn{background:linear-gradient(135deg,#6C4CFF,#A46BFF 55%,#E07CFF);border-color:rgba(255,255,255,.25);box-shadow:0 10px 26px rgba(124,92,255,.35),inset 0 1px 0 rgba(255,255,255,.35)}
+/* gradient headings */
+#pageTitle,.auth h1 #authH1,.wt,.modal h3{background:linear-gradient(95deg,#FFFFFF 10%,#D9CCFF 45%,#9FC2FF 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wt .ico{-webkit-text-fill-color:initial}
+.kt .lab,.stile .lab{background:linear-gradient(90deg,#B9A8FF,#8FB8FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wt .info,.lab .info,.wt .chip,.wt .status{-webkit-text-fill-color:#EDE8FF}
+.mini4 b,.mini3 b{font-size:14px!important;letter-spacing:-.03em}
+.num{letter-spacing:-.035em}
+/* light theme: the dark design inverted (hues kept); photos and brand marks flipped back */
+html[data-theme="light"]{filter:invert(1) hue-rotate(180deg);background:#09080C}
+html[data-theme="light"] .theme-btn .moon,html:not([data-theme="light"]) .theme-btn .sun{display:none}
+html[data-theme="light"] img,html[data-theme="light"] video,html[data-theme="light"] .gbtn svg,html[data-theme="light"] .no-inv{filter:invert(1) hue-rotate(180deg)}
+html[data-theme="light"] body{background:#09080C}
+.theme-btn svg{width:18px;height:18px}
 </style>
 </head>
 <body>
 
 <section id="auth" class="auth" hidden>
   <div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip"><span class="dot on"></span>TradingView to MT5</span><span class="chip">Multi-strategy</span><span class="chip">Multi-account</span></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip"><span class="dot on"></span>TradingView to MT5</span><span class="chip">Multi-strategy</span><span class="chip">Multi-account</span><button type="button" class="icon-btn theme-btn" data-theme-t aria-label="Light or dark mode" style="margin-left:auto"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div>
     <h1 class="disp"><span class="grad">DFC</span> <span id="authH1">Signals</span></h1>
     <p class="lead" id="authLead">Run your indicator strategies on every MT5 account you own. You choose the strategy, the lots, the layers and the risk.</p>
   </div>
@@ -448,6 +547,7 @@ button.chk:hover .grow{color:#fff}
       <p class="err" id="si-msg" role="alert"></p>
       <button class="glass glass-p full" type="submit" id="si-btn">Log in</button>
       <p class="note" id="demoNote" hidden>Preview mode: press Log in to see the dashboard with sample data.</p>
+      <button type="button" class="glass full" id="demoBtn">Try demo as trader</button>
       <button type="button" class="btn-plain" id="modeBtn" hidden></button>
     </form>
 
@@ -518,6 +618,7 @@ button.chk:hover .grow{color:#fff}
         <nav class="links">
           <button type="button" data-page="admin-control" title="Control center"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg><span class="lbl">Control center</span></button>
           <button type="button" data-page="admin-strategies" title="Strategies"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg><span class="lbl">Strategies</span></button>
+          <button type="button" data-page="admin-scoring" title="Panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v1a4 4 0 0 0 4 4M16 6h4v1a4 4 0 0 1-4 4M12 13v4M8 21h8M10 17h4v4h-4z"/></svg><span class="lbl">Panel</span></button>
           <button type="button" data-page="admin-calendar" title="Calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span class="lbl">Calendar</span></button>
           <button type="button" data-page="admin-users" title="Users"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c1-3.5 3.5-5.5 6.5-5.5s5.5 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5c2 .6 3.3 2.5 3.8 5.5"/></svg><span class="lbl">Users</span></button>
           <button type="button" data-page="admin-payments" title="Payments"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span class="lbl">Payments</span></button>
@@ -541,6 +642,7 @@ button.chk:hover .grow{color:#fff}
           <p class="dim xs" id="greet" style="margin-top:2px"></p>
         </div>
       </div>
+      <button type="button" class="icon-btn theme-btn" data-theme-t aria-label="Light or dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
       <button type="button" class="icon-btn bell" id="admBell" hidden aria-label="Alerts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21a2 2 0 0 0 4 0"/></svg><b id="admBellN" hidden></b></button>
       <div class="tb-r" id="tbR">
         <select id="accSel" class="acc-select" aria-label="Account"></select>
@@ -565,6 +667,7 @@ button.chk:hover .grow{color:#fff}
     <section id="page-admin-strategies" class="grid" hidden></section>
     <section id="page-admin-calendar" class="grid" hidden></section>
     <section id="page-admin-payments" class="grid" hidden></section>
+    <section id="page-admin-scoring" class="grid" hidden></section>
 
     <p class="note" id="footNote">Automated trading can lose money. Past results do not guarantee future results.</p>
   </main>
@@ -581,7 +684,12 @@ const SUPABASE_ANON_KEY = "sb_publishable_sMAJpIxDoirdhjMSYJRp4Q_UvY4gUI4";
 // ==============================
 
 const $ = id => document.getElementById(id);
-const DEMO = !/^https:\/\//.test(SUPABASE_URL);
+// ?demo = try the dashboard with sample data (nothing is saved, no real account)
+// light / dark mode, remembered on this device
+const setTheme = t => { document.documentElement.dataset.theme = t; try { localStorage.setItem("dfc-theme", t); } catch (e) {} };
+try { setTheme(localStorage.getItem("dfc-theme") || "dark"); } catch (e) {}
+document.addEventListener("click", e => { if (e.target.closest("[data-theme-t]")) setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light"); });
+const DEMO = !/^https:\/\//.test(SUPABASE_URL) || new URLSearchParams(location.search).has("demo");
 let sb = null, libError = "";
 if (!DEMO) {
   if (window.supabase && window.supabase.createClient) sb = window.supabase.createClient(SUPABASE_URL.trim(), SUPABASE_ANON_KEY.trim());
@@ -601,7 +709,7 @@ const sideTag = v => { const k = String(v || "").toLowerCase(); return `<span cl
 const emptyRow = (c, msg) => `<tr class="empty"><td colspan="${c}">${msg}</td></tr>`;
 const statusPill = s => `<span class="status ${esc(s || "off")}">${esc(s || "off")}</span>`;
 const ico = `<span class="ico"><span></span></span>`;
-const ICONS = [[/issue|alert/,"M12 3l10 18H2zM12 10v5M12 18h.01"],[/live trade|open trade|position/,"M3 12h4l3-8 4 16 3-8h4"],[/revenue/,"M12 2v20M17 6.5C17 4.6 14.8 4 12 4S7 5 7 7s2 2.8 5 3.4 5 1.3 5 3.6-2.2 3-5 3-5-.9-5-2.8"],
+const ICONS = [[/health|check/,"M20.8 8.6a5 5 0 0 0-8.8-3.2 5 5 0 0 0-8.8 3.2c0 5.4 8.8 10.9 8.8 10.9s8.8-5.5 8.8-10.9zM3 12h4l2-3 3 6 2-3h4"],[/portfolio/,"M3 7h18v13H3zM8 7V4h8v3M3 12h18"],[/exposure/,"M12 3l9 16H3zM12 9v4M12 16h.01"],[/ruin/,"M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM12 8v5M12 16h.01"],[/worst/,"M3 7l6 6 4-4 8 8M21 11v6h-6"],[/volatil|gvz/,"M2 12h3l3-8 4 16 3-12 2 4h5"],[/macro/,"M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"],[/rate path/,"M3 17l6-6 4 4 8-8M3 21h18"],[/positioning|cot\b/,"M4 20V8M10 20V4M16 20v-9M22 20H2"],[/surprise|release|event/,"M12 3a6 6 0 0 0-6 6c0 6-3 8-3 8h18s-3-2-3-8a6 6 0 0 0-6-6zM10 21h4"],[/news|source|brief/,"M4 5h13v14H6a2 2 0 0 1-2-2zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"],[/mood|sentiment/,"M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"],[/ai |analyst|auto-action|weekly|profiles/,"M9 3h6M12 3v3M5 9a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3zM9 12h.01M15 12h.01M9 16h6"],[/compare|correlation/,"M7 4v16M17 4v16M4 8h6M14 16h6"],[/scor|optimi/,"M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v1a4 4 0 0 0 4 4M16 6h4v1a4 4 0 0 1-4 4M12 13v4M8 21h8"],[/live setup|setups/,"M3 12h4l3-8 4 16 3-8h4"],[/issue|alert/,"M12 3l10 18H2zM12 10v5M12 18h.01"],[/live trade|open trade|position/,"M3 12h4l3-8 4 16 3-8h4"],[/revenue/,"M12 2v20M17 6.5C17 4.6 14.8 4 12 4S7 5 7 7s2 2.8 5 3.4 5 1.3 5 3.6-2.2 3-5 3-5-.9-5-2.8"],
   [/payment|billing|subscri|subs\b|card|crypto/,"M3 6h18v12H3zM3 10h18M7 15h3"],[/balance/,"M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7l12-4v4M17 14h.01"],[/equity|floating/,"M3 17l5-5 4 3 8-8M15 7h5v5"],
   [/win rate|accuracy/,"M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 12h.01"],[/system|status/,"M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"],
   [/profit|performance|p&l|results/,"M4 20V10M10 20V4M16 20v-7M22 20H2"],[/strateg/,"M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"],[/signal|feed|webhook/,"M13 3 5 14h6l-1 7 8-11h-6z"],
@@ -668,8 +776,8 @@ function ask(title, text, okLabel = "Confirm", danger = false, html = null, canc
 }
 document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("modal").hidden) $("mCancel").click(); });
 
-const S = { user:null, profile:{}, accounts:[], strategies:[], links:[], trades:[], signals:[], notes:{}, sel:"all", page:"overview", range:14, jMonth:null, jDay:null, tradeStrat:"all", newAcc:null, adm:null, st:{ strat:"all", from:"", to:"", src:"all", preview:null }, uq:"", openU:new Set(), sr:30, rv:30, us:"winners", pf:{ st:"all", m:"all", q:"" }, cMonth:null, cDay:null, cStrat:"all" };
-const TITLES = {overview:"Overview",strategies:"Strategies",trades:"Trades",journal:"Journal",signals:"Signals",risk:"Risk Management",accounts:"MT5 Accounts",billing:"Billing",profile:"Profile","admin-control":"Control center","admin-strategies":"Strategies","admin-calendar":"Calendar","admin-users":"Users","admin-stats":"Setup history","admin-payments":"Payments"};
+const S = { user:null, profile:{}, accounts:[], strategies:[], links:[], trades:[], signals:[], notes:{}, sel:"all", page:"overview", range:14, jMonth:null, jDay:null, tradeStrat:"all", newAcc:null, adm:null, st:{ strat:"all", from:"", to:"", src:"all", preview:null }, uq:"", openU:new Set(), sr:30, rv:30, lb:{ range:"30", from:"", to:"", sym:"all", mkt:"all", tf:"all", ses:"all", sort:"pips", dir:1, selId:null }, sf:"all", us:"winners", pf:{ st:"all", m:"all", q:"" }, cMonth:null, cDay:null, cStrat:"all" };
+const TITLES = {overview:"Overview",strategies:"Strategies",trades:"Trades",journal:"Journal",signals:"Signals",risk:"Risk Management",accounts:"MT5 Accounts",billing:"Billing",profile:"Profile","admin-control":"Control center","admin-strategies":"Strategies","admin-calendar":"Calendar","admin-users":"Users","admin-stats":"Setup history","admin-payments":"Payments","admin-scoring":"Panel"};
 const tz = () => S.profile.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
 function dayKey(d){ try { return new Intl.DateTimeFormat("en-CA",{timeZone:tz(),year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date(d)); } catch(e){ const x = new Date(d); return x.getFullYear()+"-"+pad(x.getMonth()+1)+"-"+pad(x.getDate()); } }
 function fmtDT(d){ if (!d) return "—"; try { return new Date(d).toLocaleString(undefined,{timeZone:tz(),dateStyle:"medium",timeStyle:"short"}); } catch(e){ return new Date(d).toLocaleString(); } }
@@ -820,24 +928,70 @@ const api = {
   },
   async loadAdmin(){
     if (DEMO) { S.adm = S.adm || demoAdmin(); return; }
-    // ponytail: newest 10k setups / 20k trades load into the browser; move totals into SQL views past that
+    // the API returns at most 1,000 rows per request: read big tables in pages (newest 20k)
+    const pageAll = async (q, max = 20000) => { const out = []; for (let i = 0; i < max; i += 1000) { const r = await q().range(i, i + 999); if (r.error) return r; out.push(...r.data); if (r.data.length < 1000) break; } return { data:out }; };
     const [p, a, l, s, t, al, sg, py, ig] = await Promise.all([
       sb.from("profiles").select("*"),
       sb.from("mt5_accounts").select("id,user_id,name,login,broker,currency,balance,equity,profit,positions,pending_orders,trading_enabled,last_seen,created_at,paid_until,plan,cancelled,broker_connected"),
       sb.from("account_strategies").select("account_id,strategy_id,user_id,status"),
-      sb.from("setups").select("*").order("id",{ascending:false}).limit(10000),
-      sb.from("trades").select("account_id,user_id,strategy_id,zone_id,symbol,side,lots,profit,open_price,close_price,opened_at,closed_at,layer,ticket").order("closed_at",{ascending:false}).limit(20000),
+      pageAll(() => sb.from("setups").select("*").order("id",{ascending:false})),
+      pageAll(() => sb.from("trades").select("account_id,user_id,strategy_id,zone_id,symbol,side,lots,profit,open_price,close_price,opened_at,closed_at,layer,ticket").order("closed_at",{ascending:false})),
       sb.from("alerts").select("*").eq("audience","admin").order("id",{ascending:false}).limit(200),
       sb.from("signals").select("created_at").order("id",{ascending:false}).limit(1),
-      sb.from("payments").select("*").order("created_at",{ascending:false}).limit(5000),
+      pageAll(() => sb.from("payments").select("*").order("created_at",{ascending:false}), 10000),
       sb.from("alert_ignores").select("key")
     ]);
     const err = [p,a,l,s,t,al,sg,py,ig].find(x => x.error); if (err) toast("Could not load admin data: " + err.error.message);
     S.adm = { users:p.data || [], accounts:a.data || [], links:l.data || [], setups:s.data || [], trades:t.data || [], alerts:al.data || [], lastSignal:((sg.data || [])[0] || {}).created_at, payments:py.data || [], ignores:(ig.data || []).map(x => x.key) };
+    // sentiment + live price (tables from v7; missing tables just leave these empty)
+    const week = new Date(Date.now() - 7 * 864e5).toISOString(), [nw, evs, br, qt, pr, src, ru, rvw, ch, ais, aia, ain, mac] = await Promise.all([
+      sb.from("news").select("*").gte("created_at", week).order("id",{ascending:false}).limit(1000),
+      sb.from("events").select("*").gte("at", new Date(Date.now() - 180 * 864e5).toISOString()).order("at").limit(1000),
+      sb.from("briefs").select("*").order("day",{ascending:false}).limit(7),
+      sb.from("quotes").select("*"),
+      pageAll(() => sb.from("price_history").select("ts,price").eq("symbol","XAUUSD").gte("ts", new Date(Date.now() - 30 * 864e5).toISOString()).order("ts"), 10000),
+      sb.from("news_sources").select("*").order("id"),
+      sb.from("score_rules").select("*").order("id"),
+      sb.from("ai_reviews").select("*").order("id",{ascending:false}).limit(30),
+      sb.from("ai_chat").select("role,content").order("id",{ascending:false}).limit(40),
+      sb.from("ai_settings").select("*").maybeSingle(),
+      sb.from("ai_actions").select("*").order("id",{ascending:false}).limit(30),
+      sb.from("ai_notes").select("*"),
+      pageAll(() => sb.from("macro_series").select("series,d,v").gte("d", dayKey(Date.now() - 3 * 365 * 864e5)).order("d"), 40000)
+    ]);
+    const macro = {}; (mac.data || []).forEach(r => (macro[r.series] = macro[r.series] || []).push([r.d, Number(r.v)]));
+    Object.assign(S.adm, { news:nw.data || [], events:evs.data || [], briefs:br.data || [], quote:(qt.data || []).find(q => q.symbol === "XAUUSD") || null, prices:pr.data || [], sources:src.data || [], rules:ru.data || [], reviews:rvw.data || [], chat:(ch.data || []).reverse(), aiSettings:ais.data || null, aiActions:aia.data || [], aiNotes:ain.data || [], macro });
   },
   async setStrategyStatus(sid, st){
-    if (!DEMO) { const { error } = await sb.rpc("admin_set_strategy_status", { sid, st }); if (error) throw error; }
-    Object.assign(S.strategies.find(s => s.id === sid) || {}, { admin_status:st });
+    if (!DEMO) { const { error } = await sb.rpc("admin_set_strategy_status", { sid, st }); if (error) throw error; if (st === "active") await sb.from("strategies").update({ paused_until:null }).eq("id", sid); }
+    Object.assign(S.strategies.find(s => s.id === sid) || {}, { admin_status:st }, st === "active" ? { paused_until:null } : {});
+  },
+  // timed pause for every running strategy; it ends by itself (null = resume now)
+  async pauseAll(min){
+    const until = min ? new Date(Date.now() + min * 6e4).toISOString() : null, ids = min ? runningIds() : S.strategies.filter(s => s.paused_until).map(s => s.id);
+    if (!DEMO && ids.length) { const { error } = await sb.from("strategies").update({ paused_until:until }).in("id", ids); if (error) throw error; }
+    S.strategies.forEach(s => { if (ids.includes(s.id)) s.paused_until = until; }); return ids.length;
+  },
+  async setAiSetting(patch){
+    S.adm.aiSettings = Object.assign(S.adm.aiSettings || { id:1, auto_pause_news:false, lead_min:30, pause_min:60 }, patch);
+    if (!DEMO) { const { error } = await sb.from("ai_settings").upsert(Object.assign({ id:1 }, S.adm.aiSettings)); if (error) throw error; }
+  },
+  async undoAiAction(id){
+    const x = S.adm.aiActions.find(a => a.id === id);
+    if (!DEMO) { const r1 = await sb.from("strategies").update({ paused_until:null }).eq("id", x.strategy_id); if (r1.error) throw r1.error; const r2 = await sb.from("ai_actions").update({ undone:true }).eq("id", id); if (r2.error) throw r2.error; }
+    x.undone = true; const s = S.strategies.find(s => s.id === x.strategy_id); if (s) s.paused_until = null;
+  },
+  async aiWeekly(){
+    if (DEMO) { await new Promise(r => setTimeout(r, 600)); const rv = { id:Date.now(), kind:"weekly", created_at:new Date().toISOString(), summary:"Week closed +212 pips across 4 strategies (61% win rate).\nSecond H4 led again (+138 p); Dark H4 was the drag with 3 straight SL on Wednesday.\nMost losses came in the hour after CPI; strategies were 20% weaker around news.\nNext week: FOMC minutes and NFP. Consider pausing Dark H4 around NFP.", suggestions:[] }; S.adm.reviews.unshift(rv); return rv; }
+    const { data, error } = await sb.functions.invoke("ai-analyst", { body:{ mode:"weekly" } });
+    if (error) { let m = error.message; try { m = (await error.context.json()).error || m; } catch (e) {} throw new Error(m); }
+    S.adm.reviews.unshift(data); if (data.notes) data.notes.forEach(n => { const o = S.adm.aiNotes.find(x => x.strategy_id === n.strategy_id); o ? Object.assign(o, n) : S.adm.aiNotes.push(n); }); return data;
+  },
+  async aiWhy(q){
+    if (DEMO) { await new Promise(r => setTimeout(r, 500)); return "This fired because the last 7 days fell well below the 7 days before; most of the losses clustered around the CPI release, so it looks news-driven rather than a broken strategy. Watch the next 5 setups before pausing."; }
+    const { data, error } = await sb.functions.invoke("ai-analyst", { body:{ mode:"ask", q } });
+    if (error) { let m = error.message; try { m = (await error.context.json()).error || m; } catch (e) {} throw new Error(m); }
+    S.adm.chat.push({ role:"admin", content:q }, { role:"ai", content:data.answer }); return data.answer;
   },
   async closeSetup(sid, zid){
     if (DEMO) { S.adm.accounts.forEach(a => a.positions = (a.positions || []).filter(p => !(p.strategy_id === sid && p.zone_id === zid))); S.adm.alerts.unshift({ id:Date.now(), level:"info", source:"admin", message:`Admin closed ${sid} (${zid}) on all accounts`, created_at:new Date().toISOString(), read:false }); return; }
@@ -864,6 +1018,38 @@ const api = {
   async giftDays(aid, days){
     if (!DEMO) { const { error } = await sb.rpc("admin_extend_account", { aid, days }); if (error) throw error; }
     const a = S.adm.accounts.find(x => x.id === aid); a.paid_until = new Date(Math.max(Date.now(), new Date(a.paid_until || 0).getTime()) + days * 864e5).toISOString();
+  },
+  async aiReview(){
+    if (DEMO) { await new Promise(r => setTimeout(r, 600)); const rv = { id:Date.now(), created_at:new Date().toISOString(), summary:"• Second H4 and Sharp Zone are the strongest this month (scores 70+), steady win rates and shallow drawdowns.\n• Dark H4 is weakening: 3 of its last 5 setups hit SL and net pips turned negative.\n• News mood is neutral (59/100); US CPI in 5 hours is the main risk for gold today.\n• Flow Reversal has few closed setups, keep watching before judging it.", suggestions:[{ strategy_id:"second_h4", action:"keep", reason:"Best score, 67% win rate, drawdown under control", state:"info" }, { strategy_id:"dark_h4", action:"pause", reason:"Losing streak and negative pips this month; CPI in 5 h adds risk", state:"pending" }, { strategy_id:"flow_rev", action:"watch", reason:"Too few closed setups to judge", state:"info" }] }; S.adm.reviews.unshift(rv); return rv; }
+    const { data, error } = await sb.functions.invoke("ai-analyst", { body:{ mode:"review" } });
+    if (error) { let m = error.message; try { m = (await error.context.json()).error || m; } catch (e) {} throw new Error(m); }
+    S.adm.reviews.unshift(data); return data;
+  },
+  async aiAsk(q){
+    S.adm.chat.push({ role:"admin", content:q });
+    if (DEMO) { await new Promise(r => setTimeout(r, 500)); S.adm.chat.push({ role:"ai", content:"In the last 30 days Dark H4 is the weakest: 33% win rate, −28 pips and a 133-pip drawdown. Its last setups were mostly SL. With US CPI later today, pausing it until the numbers are out is reasonable." }); return; }
+    const { data, error } = await sb.functions.invoke("ai-analyst", { body:{ mode:"ask", q } });
+    if (error) { S.adm.chat.pop(); let m = error.message; try { m = (await error.context.json()).error || m; } catch (e) {} throw new Error(m); }
+    S.adm.chat.push({ role:"ai", content:data.answer });
+  },
+  async saveReview(rv){
+    if (!DEMO) { const { error } = await sb.from("ai_reviews").update({ suggestions:rv.suggestions }).eq("id", rv.id); if (error) throw error; }
+  },
+  async addRule(row){
+    if (DEMO) { S.adm.rules.push(Object.assign({ id:Date.now(), enabled:true }, row)); return; }
+    const { data, error } = await sb.from("score_rules").insert(row).select().single(); if (error) throw error; S.adm.rules.push(data);
+  },
+  async setRule(id, patch){
+    if (!DEMO) { const { error } = patch === null ? await sb.from("score_rules").delete().eq("id", id) : await sb.from("score_rules").update(patch).eq("id", id); if (error) throw error; }
+    S.adm.rules = patch === null ? S.adm.rules.filter(x => x.id !== id) : S.adm.rules.map(x => x.id === id ? Object.assign(x, patch) : x);
+  },
+  async addSource(row){
+    if (DEMO) { S.adm.sources.push(Object.assign({ id:Date.now(), enabled:true }, row)); return; }
+    const { data, error } = await sb.from("news_sources").insert(row).select().single(); if (error) throw error; S.adm.sources.push(data);
+  },
+  async setSource(id, patch){
+    if (!DEMO) { const { error } = patch === null ? await sb.from("news_sources").delete().eq("id", id) : await sb.from("news_sources").update(patch).eq("id", id); if (error) throw error; }
+    S.adm.sources = patch === null ? S.adm.sources.filter(x => x.id !== id) : S.adm.sources.map(x => x.id === id ? Object.assign(x, patch) : x);
   },
   async setEntryRule(sid, entry_rule){
     if (!DEMO) { const { error } = await sb.from("strategies").update({ entry_rule }).eq("id", sid); if (error) throw error; }
@@ -899,13 +1085,15 @@ function authView(v){
   $("authTabs").hidden = $("gWrap").hidden = ADMIN_MODE || !(v === "signin" || v === "signup");
   $("authH1").textContent = ADMIN_MODE ? "Admin" : "Signals";
   $("authLead").textContent = ADMIN_MODE ? "Admin panel: strategy stats, master switches and all users. Admin accounts only." : "Run your indicator strategies on every MT5 account you own. You choose the strategy, the lots, the layers and the risk.";
-  $("modeBtn").hidden = !ADMIN_MODE && !DEMO; $("modeBtn").textContent = ADMIN_MODE ? "← Trader login" : "Admin login (preview)";
+  $("demoBtn").hidden = ADMIN_MODE; $("modeBtn").hidden = !ADMIN_MODE && !DEMO; $("modeBtn").textContent = ADMIN_MODE ? "← Trader login" : "Admin login (preview)";
   document.querySelectorAll("#authTabs button").forEach(b => b.classList.toggle("on", b.dataset.view === v));
   document.querySelectorAll("#authCard .err, #authCard .ok").forEach(e => { if (e.id) { e.textContent = ""; e.className = "err"; } });
 }
 function showAuth(view = "signin"){ $("app").hidden = true; $("auth").hidden = false; $("demoNote").hidden = !DEMO; authView(view); if (libError) $("si-msg").textContent = libError; }
 document.querySelectorAll("#authTabs button").forEach(b => b.addEventListener("click", () => authView(b.dataset.view)));
 $("admBell").addEventListener("click", () => { if (!ADMIN_MODE) return showNotes(); go("admin-control"); const b = $("healthBox"); if (b) b.scrollIntoView({ behavior:"smooth" }); });
+$("demoBtn").addEventListener("click", () => { if (DEMO) { ADMIN_MODE = false; return $("si-btn").click(); } location.href = location.pathname + "?demo"; });
+if (new URLSearchParams(location.search).has("demo")) setTimeout(() => { if (!$("auth").hidden) { ADMIN_MODE = false; $("si-btn").click(); } }, 300);
 $("modeBtn").addEventListener("click", () => { ADMIN_MODE = !ADMIN_MODE; try { history.replaceState(null, "", redir()); } catch (e) {} authView("signin"); });
 document.querySelectorAll("[data-view-go]").forEach(b => b.addEventListener("click", () => authView(b.dataset.viewGo)));
 const say = (id, text, ok) => { const m = $(id); m.textContent = text; m.className = ok ? "ok" : "err"; };
@@ -1009,7 +1197,7 @@ async function tick(){
   const ae = document.activeElement;
   const editing = ae && /INPUT|TEXTAREA|SELECT/.test(ae.tagName) && ae.id !== "accSel";
   if (["overview","trades","signals","strategies","accounts"].includes(S.page) && !editing) renderPage();
-  if (S.page.startsWith("admin")) { await api.loadAdmin(); bell(); if (!editing && $("modal").hidden) ({"admin-users":renderUserList,"admin-stats":renderStatsBody,"admin-control":renderControl,"admin-strategies":renderAdminStrategies,"admin-calendar":renderAdminCalendar})[S.page](); }
+  if (S.page.startsWith("admin")) { await api.loadAdmin(); bell(); if (!editing && $("modal").hidden) (({"admin-users":renderUserList,"admin-stats":renderStatsBody})[S.page] || renderPage)(); }
 }
 
 // ---------- sidebar & navigation ----------
@@ -1036,7 +1224,7 @@ function go(p){
 }
 function renderPage(){
   if (S.page.startsWith("admin") && !S.adm) { $("page-" + S.page).insertAdjacentHTML("afterbegin", `<div class="w s12 empty-card" id="admLoading"><p class="dim">Loading…</p></div>`); return api.loadAdmin().then(() => { $("admLoading") && $("admLoading").remove(); bell(); renderPage(); }); }
-  ({"admin-control":renderControl,"admin-strategies":renderAdminStrategies,"admin-calendar":renderAdminCalendar,"admin-stats":renderAdminStats,"admin-users":renderAdminUsers,"admin-payments":renderAdminPayments,billing:renderBilling,overview:renderOverview,strategies:renderStrategies,trades:renderTrades,journal:renderJournal,signals:renderSignals,risk:renderRisk,accounts:renderAccounts,profile:renderProfile})[S.page](); }
+  ({"admin-control":renderControl,"admin-strategies":renderAdminStrategies,"admin-calendar":renderAdminCalendar,"admin-stats":renderAdminStats,"admin-users":renderAdminUsers,"admin-payments":renderAdminPayments,"admin-scoring":renderScoring,billing:renderBilling,overview:renderOverview,strategies:renderStrategies,trades:renderTrades,journal:renderJournal,signals:renderSignals,risk:renderRisk,accounts:renderAccounts,profile:renderProfile})[S.page](); }
 
 // ---------- top bar ----------
 $("accSel").addEventListener("change", e => { S.sel = e.target.value; store.set("dfc-acc", S.sel); renderTop(); renderPage(); });
@@ -1544,7 +1732,7 @@ function demoAdmin(){
         zone_top:+(e + (d > 0 ? 0 : 4.2)).toFixed(2), zone_bottom:+(e - (d > 0 ? 4.2 : 0)).toFixed(2), created_at:new Date(trig - 3 * 3600e3).toISOString(),
         triggered_at:status === "pending" ? null : new Date(trig).toISOString(), closed_at:["tp","sl","be"].includes(status) ? new Date(trig + (1 + r() * 20) * 3600e3).toISOString() : null,
         import_batch:i > 50 ? "tv_history" : i > 44 ? "csv-1791900000000" : null };
-      row.pips = demoPips(row); setups.push(row);
+      row.pips = demoPips(row); if (row.triggered_at) { row.mfe = +(Math.max(0, row.pips || 0) + r() * 25).toFixed(1); row.mae = -+(Math.max(0, -(row.pips || 0)) + r() * 15).toFixed(1); } setups.push(row);
     }
   });
   const live = setups.find(x => x.strategy_id === "second_h4" && x.status === "triggered");
@@ -1565,7 +1753,22 @@ function demoAdmin(){
   payments.forEach((p, i) => p.provider_ref = (p.method === "card" ? "cs_live_" : "np_") + (1e9 + i * 7919).toString(36));
   payments.push({ id:"pp1", user_id:"u4", account_id:"b4", plan:"monthly", method:"crypto", amount:49, status:"pending", provider_ref:"np_4471920", created_at:new Date(now - 5 * 36e5).toISOString() }, { id:"pf1", user_id:"u3", account_id:"b3", plan:"monthly", method:"card", amount:49, status:"failed", provider_ref:"cs_live_a81kd", created_at:ago(3) });
   alerts.push({ id:4, level:"error", source:"webhook", message:"dark_h4 buy: insert or update on table setups violates foreign key constraint", created_at:new Date(now - 50 * 60e3).toISOString(), read:false });
-  return { users, accounts, links, setups, trades, alerts, payments, ignores:[], lastSignal:new Date(now - 2 * 3600e3).toISOString() };
+  const prices = [], news = [], heads = ["Fed signals patience on rate cuts as inflation cools","US CPI rises more than expected in September","Gold hits fresh record as dollar slides","Treasury yields jump after strong jobs data","Central banks keep buying gold, WGC says","Dollar firms ahead of FOMC minutes","Geopolitical tension lifts safe-haven demand","ECB holds rates, signals data dependence","US retail sales beat forecasts","Profit-taking pulls gold off highs"];
+  let pz = 4080; for (let i = 7 * 24 * 12; i >= 0; i--) { pz += (r() - .48) * 2.2; prices.push({ ts:new Date(now - i * 3e5).toISOString(), price:+pz.toFixed(2) }); }
+  for (let i = 0; i < 140; i++) { const sc = Math.round(Math.min(98, Math.max(3, 55 + (r() - .5) * 80))), t = new Date(now - i * 72 * 6e4 - r() * 3e6).toISOString(); news.push({ id:1000 - i, source:["Federal Reserve","FXStreet","Kitco"][i % 3], title:heads[i % heads.length], url:"https://example.com/n/" + i, published_at:t, created_at:t, score:i < 2 ? null : sc, sentiment:i < 2 ? null : sc >= 60 ? "bullish" : sc <= 40 ? "bearish" : "neutral", impact:["high","medium","low","low"][i % 4], why:sc >= 60 ? "Weaker dollar supports gold" : sc <= 40 ? "Higher yields weigh on gold" : "Limited direct impact on gold" }); }
+  const events = [["CPI m/m",2,"0.3%","0.4%"],["Unemployment Claims",22,"228K","231K"],["FOMC Meeting Minutes",31,"",""],["Non-Farm Employment Change",46,"145K","187K"]].map(([title, h, forecast, previous], i) => ({ id:i + 1, title, currency:"USD", impact:"high", at:new Date(now + h * 36e5).toISOString(), forecast:forecast || null, previous:previous || null, actual:null }));
+  const briefs = [{ day:dayKey(now), symbol:"XAUUSD", text:"• Mood: mildly bullish (61/100). A softer dollar and steady central-bank buying support gold.\n• Watch: US CPI in 5 hours. A hot print would lift yields and pressure gold.\n• Price: holding near 4,1xx after yesterday's pullback.\n• Risk: FOMC minutes later this week could revive rate-cut doubts." }];
+  const sources = [{ id:1, name:"Federal Reserve press releases", url:"https://www.federalreserve.gov/feeds/press_all.xml", enabled:true }, { id:2, name:"Federal Reserve monetary policy", url:"https://www.federalreserve.gov/feeds/press_monetary.xml", enabled:true }];
+  setups.filter(x => x.status === "triggered").forEach((x, i) => { const d = x.side === "buy" ? 1 : -1, e = +(pz - d * (3 + i * 2)).toFixed(2); Object.assign(x, { entry:e, sl:+(e - d * 11).toFixed(2), tp:+(e + d * 13).toFixed(2), triggered_at:new Date(now - (2 + i) * 36e5).toISOString() }); });
+  for (let d = 3; d < 120; d += 1) { const t = new Date(now - d * 864e5); t.setUTCHours(12, 30, 0, 0); const dw = t.getUTCDay(), dm = t.getUTCDate();
+    const title = dw === 5 && dm <= 7 ? "Non-Farm Employment Change" : dm >= 10 && dm <= 14 && dw === 3 ? "CPI m/m" : d % 42 === 5 ? "Federal Funds Rate" : dw === 4 ? "Unemployment Claims" : null;
+    if (title) { const f = { "Non-Farm Employment Change":150, "CPI m/m":.3, "Federal Funds Rate":4.5, "Unemployment Claims":225 }[title], a = +(f * (1 + (Math.random() - .5) * .3)).toFixed(title === "CPI m/m" ? 1 : 0), m15 = +((f - a) / f * 400 + (Math.random() - .5) * 60).toFixed(1);
+      events.unshift({ id:1000 + d, title, currency:"USD", impact:"high", at:t.toISOString(), forecast:f, previous:f, actual:a, move_15:m15, move_60:+(m15 * 1.4 + (Math.random() - .5) * 50).toFixed(1) }); } }
+  const notesD = { second_h4:"Steady trend-follower. Best in London/NY overlap on wide days; struggles in tight Asian ranges. Watch for back-to-back SL after news.", sharp_zone:"Fast zone scalper with high win rate and small wins. Sensitive to spread spikes; avoid the first 30 min after CPI.", dark_h4:"Counter-trend H4 entries. Strong in ranging weeks, weak when gold trends hard. Current losing streak suggests a trending phase.", flow_rev:"New, too few results to profile yet. Early trades favour reversals off session highs." };
+  return { users, accounts, links, setups, trades, alerts, payments, ignores:[], lastSignal:new Date(now - 2 * 3600e3).toISOString(), prices, news, events, briefs, sources, chat:[],
+    reviews:[{ id:2, kind:"weekly", created_at:new Date(now - 2 * 864e5).toISOString(), summary:"Week closed +186 pips across 4 strategies (63% win rate).\nSecond H4 led (+121 p, 5 of 7 TP); Sharp Zone steady (+64 p).\nDark H4 lost 58 p, mostly on trend days: it fades moves that kept going.\nRisk next week: CPI (Wed) and FOMC minutes (Thu).\nRecommendation: keep Second H4 and Sharp Zone; pause Dark H4 around CPI.", suggestions:[] }, { id:1, kind:"weekly", created_at:new Date(now - 9 * 864e5).toISOString(), summary:"Week closed +94 pips (58% win rate).\nSharp Zone best (+70 p). Dark H4 flat.\nNFP Friday cost 41 pips across strategies.\nRecommendation: use the 1 h news pause on NFP.", suggestions:[] }],
+    aiNotes:Object.entries(notesD).map(([strategy_id, note]) => ({ strategy_id, note })), aiSettings:{ id:1, auto_pause_news:true, lead_min:30, pause_min:60 }, macro:demoMacro(now),
+    aiActions:[{ id:2, at:new Date(now - 3 * 864e5).toISOString(), action:"pause", strategy_id:"dark_h4", reason:"Before CPI m/m", until:new Date(now - 3 * 864e5 + 90 * 6e4).toISOString(), undone:false }, { id:1, at:new Date(now - 3 * 864e5).toISOString(), action:"pause", strategy_id:"second_h4", reason:"Before CPI m/m", until:new Date(now - 3 * 864e5 + 90 * 6e4).toISOString(), undone:true }], rules:[{ id:1, strategy_id:null, drop_pct:15, days:7, enabled:true }, { id:2, strategy_id:"dark_h4", drop_pct:10, days:3, enabled:true }], quote:{ symbol:"XAUUSD", price:prices[prices.length - 1].price, updated_at:new Date(now).toISOString() } };
 }
 
 const addStratHtml = () => `<section class="w s12"><div class="wh"><span class="wt">${ico}Add a strategy</span><span class="hint">Then use the same ID in its indicator's MT5 Webhook settings.</span></div>
@@ -1573,6 +1776,7 @@ const addStratHtml = () => `<section class="w s12"><div class="wh"><span class="
       <label class="field" for="ns-id">Strategy ID<input id="ns-id" type="text" placeholder="dark_h4" maxlength="24"><span class="hint">Lowercase letters, numbers and _ only.</span></label>
       <label class="field" for="ns-name">Name<input id="ns-name" type="text" placeholder="Dark H4"></label>
       <label class="field" for="ns-sym">Symbol<input id="ns-sym" type="text" value="XAUUSD"></label></div>
+      <label class="field" for="ns-mkt">Market<select id="ns-mkt">${Object.entries(MARKETS).map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select></label>
       <div class="pair"><label class="field" for="ns-tf">Timeframe<input id="ns-tf" type="text" placeholder="H4"></label><label class="field" for="ns-desc">Short description<input id="ns-desc" type="text" placeholder="Optional"></label></div>
       <div class="pair"><span class="field">Entry<span class="seg" id="ns-rule">${[["any","User's choice"],["single","Single only"],["layered","Layered only"]].map(([v, l], i) => `<button type="button" data-ns-rule="${v}" class="${i ? "" : "on"}">${l}</button>`).join("")}</span><span class="hint">Single only or layered only locks the entry type for every user. User's choice lets each user pick.</span></span>
         <div class="drop"><b style="font-weight:600">Past setups (optional)</b><span class="hint">Have history for this strategy? Fill the Excel template, save as CSV and choose it here. It imports right after the strategy is added.</span>
@@ -1759,7 +1963,7 @@ function liveGroups(){
 const akey = m => String(m || "").toLowerCase().replace(/[0-9.,#:$-]+/g, "#").replace(/\s+/g, " ").trim();
 // Health checks across the whole system. Each failing check lists where the problem is; crit = broken on our side.
 // A check or a single alert can be ignored (stored as a key in alert_ignores).
-const CHECK_NAMES = { feed:"TradingView feed", webhook:"Webhook", eaconn:"EA connections", eaorders:"EA orders", payments:"Payments", subs:"Subscriptions", stuck:"Open setups", stopped:"Stopped strategies", other:"Other alerts", data:"Data size" };
+const CHECK_NAMES = { feed:"TradingView feed", webhook:"Webhook", eaconn:"EA connections", eaorders:"EA orders", payments:"Payments", subs:"Subscriptions", stuck:"Open setups", stopped:"Stopped strategies", other:"Other alerts", agent:"Sentiment agent", data:"Data size" };
 function checks(){
   const A = S.adm, now = Date.now(), ign = new Set(A.ignores), open = A.alerts.filter(a => !a.read && a.level !== "info" && !ign.has(akey(a.message)));
   const alerts = re => open.filter(a => re.test(a.source || "")), al = a => ({ alert:a });
@@ -1770,13 +1974,12 @@ function checks(){
   return [
     c("feed", fresh ? [] : [{ text:"No TradingView alert in the last 24 hours", sub:A.lastSignal ? "Last alert " + agoTxt(A.lastSignal) : "Never received one" }], "Last alert " + agoTxt(A.lastSignal), () => A.lastSignal ? "Quiet since " + agoTxt(A.lastSignal) : "No alert yet", true),
     c("webhook", alerts(/webhook/i).map(al), "No errors", n(0, "error"), true),
-    c("eaconn", A.accounts.filter(a => a.trading_enabled && (!online(a) || a.broker_connected === false)).map(a => acc(a, online(a) ? "MT5 can't log in to the broker (password changed?)" : "Last seen " + agoTxt(a.last_seen))), "All online", x => `${x} with a problem`, false),
     c("eaorders", alerts(/^EA/).map(al), "No failed orders", n(0, "failed order"), true),
     c("payments", alerts(/payment|billing/i).map(al), "No errors", n(0, "error"), true),
-    c("subs", A.accounts.filter(a => a.trading_enabled && a.plan !== "admin" && (!a.paid_until || new Date(a.paid_until) < now)).map(a => acc(a, a.paid_until ? "Expired " + agoTxt(a.paid_until) : "Never paid")), "All paid", x => `${x} expired, trading on`, false),
     c("stuck", A.setups.filter(x => x.status === "triggered" && x.triggered_at && now - new Date(x.triggered_at) > 7 * 864e5).map(x => ({ text:`${stratName(x.strategy_id)} ${x.side.toUpperCase()} ${x.symbol}`, sub:"Open since " + fmtDT(x.triggered_at), setup:x.id })), "None stuck", x => `${x} open over 7 days`, false),
     c("stopped", liveGroups().filter(g => ((S.strategies.find(x => x.id === g.strategy_id) || {}).admin_status) === "stopped").map(g => ({ text:`${stratName(g.strategy_id)} ${String(g.side).toUpperCase()} ${g.symbol}`, sub:`${g.n} positions on ${g.accs.size} accounts`, cut:g.key })), "Fully closed", x => `${x} still open`, true),
     c("other", open.filter(a => !/webhook|^EA|payment|billing/i.test(a.source || "")).map(al), "None", n(0, "alert"), false),
+    c("agent", (A.sources || []).some(x => x.enabled) && !(A.news || []).some(n => now - new Date(n.created_at) < 2 * 36e5) ? [{ text:"The news collector hasn't saved anything in 2 hours", sub:"Check the cron job and the ANTHROPIC_API_KEY secret in Supabase" }] : [], (A.news || []).length ? `Last news ${agoTxt((A.news[0] || {}).created_at)}` : "Not set up", () => "Idle", false),
     c("data", A.setups.length >= 9000 || A.trades.length >= 18000 ? [{ text:"Close to the browser load limit (10,000 setups / 20,000 trades)", sub:"Ask to move the totals into the database" }] : [], `${A.setups.length.toLocaleString()} setups · ${A.trades.length.toLocaleString()} trades`, () => "Near the limit", false)];
 }
 const issueCount = () => checks().filter(c => !c.ok).reduce((a, c) => a + c.items.length, 0);
@@ -1847,7 +2050,7 @@ function revenueHtml(){
 function curve(closed){
   if (closed.length < 2) return `<div class="curve"><span class="cl">Net pips curve</span><span class="mut xs" style="position:absolute;left:10px;bottom:8px">Needs 2+ closed setups</span></div>`;
   let c = 0; const pts = closed.map(x => c += Number(x.pips) || 0), lo = Math.min(0, ...pts), hi = Math.max(0, ...pts), rg = hi - lo || 1, col = c >= 0 ? "#3DF5B0" : "#FF6B81", n = pts.length;
-  const X = i => (i / (n - 1) * 300).toFixed(1), Y = v => (60 - (v - lo) / rg * 44 - 6).toFixed(1), line = pts.map((v, i) => `${X(i)},${Y(v)}`).join(" "), gid = "cg" + Math.random().toString(36).slice(2, 7);
+  const X = i => (i / (n - 1) * 300).toFixed(1), Y = v => (58 - (v - lo) / rg * 34).toFixed(1), line = pts.map((v, i) => `${X(i)},${Y(v)}`).join(" "), gid = "cg" + Math.random().toString(36).slice(2, 7);
   return `<div class="curve" title="Net ${fmtPips(c)} pips over ${n} closed setups"><span class="cl">Net pips curve</span><svg viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".35"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>
     <line x1="0" x2="300" y1="${Y(0)}" y2="${Y(0)}" stroke="rgba(255,255,255,.15)" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>
     <polygon points="0,${Y(0)} ${line} 300,${Y(0)}" fill="url(#${gid})"/><polyline points="${line}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
@@ -1889,6 +2092,539 @@ async function archiveStrategy(sid){
   renderAdminStrategies();
 }
 
+// Leaderboard: strategies ranked on TradingView setup results (same for every user)
+const pipOf = sym => /XAU|GOLD/i.test(sym || "") ? 0.1 : /JPY/i.test(sym || "") ? 0.01 : 0.0001;
+// ponytail: fixed UTC session windows, no DST shift
+const sessionOf = d => { const h = new Date(d).getUTCHours(); return h >= 7 && h < 12 ? "london" : h >= 12 && h < 21 ? "ny" : "asia"; };
+const SESSIONS = { asia:"Asia", london:"London", ny:"New York" };
+const MARKETS = { metals:"Metals", forex:"Forex", indices:"Indices", crypto:"Crypto" };
+const marketOf = s => s.market || (/XAU|XAG|GOLD/i.test(s.symbol || "") ? "metals" : "forex");
+const LB_RANGES = [["today","Today"],["7","7D"],["30","30D"],["90","90D"],["ytd","YTD"],["all","All"],["custom","Custom"]];
+function lbWindow(prev){
+  const r = S.lb.range, now = Date.now(), n = { today:1, "7":7, "30":30, "90":90 }[r];
+  if (r === "custom") return prev ? null : [S.lb.from || "0000", S.lb.to || "9999"];
+  if (r === "all") return prev ? null : ["0000", "9999"];
+  if (r === "ytd") return prev ? null : [new Date().getFullYear() + "-01-01", "9999"];
+  return prev ? [dayKey(now - (2 * n - 1) * 864e5), dayKey(now - n * 864e5)] : [dayKey(now - (n - 1) * 864e5), "9999"];
+}
+const closedIn = (list, w) => list.filter(x => ["tp","sl","be"].includes(x.status) && x.closed_at && dayKey(x.closed_at) >= w[0] && dayKey(x.closed_at) <= w[1]);
+function lbBase(sid){
+  const f = S.lb;
+  return S.adm.setups.filter(x => x.strategy_id === sid && (f.sym === "all" || x.symbol === f.sym) && (f.ses === "all" || sessionOf(x.triggered_at || x.created_at) === f.ses));
+}
+function lbStats(list){
+  const c = list.slice().sort((a, b) => new Date(a.closed_at) - new Date(b.closed_at)), p = x => Number(x.pips) || 0;
+  const tp = c.filter(x => x.status === "tp").length, sl = c.filter(x => x.status === "sl").length, be = c.filter(x => x.status === "be").length;
+  const win = c.reduce((a, x) => a + Math.max(0, p(x)), 0), loss = c.reduce((a, x) => a + Math.min(0, p(x)), 0);
+  let cum = 0, peak = 0, dd = 0; c.forEach(x => { cum += p(x); peak = Math.max(peak, cum); dd = Math.max(dd, peak - cum); });
+  const rr = c.filter(x => x.entry && x.sl && x.tp && x.entry !== x.sl).map(x => Math.abs(x.tp - x.entry) / Math.abs(x.entry - x.sl));
+  let streak = 0, last = null; for (let i = c.length - 1; i >= 0 && c[i].status !== "be"; i--) { const w = c[i].status === "tp"; if (last === null) last = w; if (w !== last) break; streak++; }
+  return { n:c.length, tp, sl, be, wr:c.length ? tp * 100 / c.length : null, pips:win + loss, pf:loss ? win / -loss : win ? Infinity : null, dd, rr:rr.length ? rr.reduce((a, x) => a + x, 0) / rr.length : null, streak:streak ? streak + (last ? "W" : "L") : "—", list:c };
+}
+const LB_COLS = [["wr","Win rate"],["pips","Net pips"],["usd","$ at 1 lot"],["pf","Profit factor"],["res","TP / SL / BE"],["dd","Max DD"],["rr","Avg R:R"],["n","Trades"],["trend","Trend"]];
+function lbRows(){
+  const f = S.lb, w = lbWindow(), pw = lbWindow(true);
+  return S.strategies.filter(s => !s.archived && (f.mkt === "all" || marketOf(s) === f.mkt) && (f.tf === "all" || (s.timeframe || "") === f.tf)).map(s => {
+    const base = lbBase(s.id), st = lbStats(closedIn(base, w)), pv = pw ? lbStats(closedIn(base, pw)) : null;
+    const sc = scoreOf(st, advStats(st));
+    return Object.assign(st, { s, sc, score:sc ? sc.v : null, usd:st.pips * 10, trend:pv && pv.wr != null && st.wr != null ? st.wr - pv.wr : null });
+  }).sort((a, b) => { const k = f.sort === "res" ? "tp" : f.sort, v = x => x[k] == null ? -Infinity : x[k] === Infinity ? 1e9 : x[k]; return (v(b) - v(a)) * f.dir; });
+}
+// health flags: always last 7 days vs the 7 before, whatever the filter
+const fmtNum = (v, d = 2) => v == null ? "—" : v === Infinity ? "∞" : v.toFixed(d);
+function scoreParts(){
+  const f = S.lb, A = S.adm, rows = lbRows();
+  const syms = [...new Set(A.setups.map(x => x.symbol).filter(Boolean))], tfs = [...new Set(S.strategies.map(s => s.timeframe).filter(Boolean))];
+  const sel = (id, k, opts) => `<label class="field" for="${id}">${{ sym:"Symbol", mkt:"Market", tf:"Timeframe", ses:"Session" }[k]}<select id="${id}" data-lbf="${k}"><option value="all">All</option>${opts.map(([v, l]) => `<option value="${esc(v)}"${f[k] === v ? " selected" : ""}>${esc(l)}</option>`).join("")}</select></label>`;
+  const open = A.setups.filter(x => x.status === "triggered").sort((a, b) => new Date(b.triggered_at) - new Date(a.triggered_at));
+  return `<div class="w w-lit s12"><div class="wh"><span class="wt">${ico}Strategy scoring</span><span class="hint">Scored on TradingView setup results, the same for every user. Pips are per setup; $ assumes 1 lot. Max DD is the biggest drop in pips from a high. Click a row for details, a column title to sort.</span></div>
+    <div class="filters">${sel("lbSym", "sym", syms.map(x => [x, x]))}${sel("lbMkt", "mkt", Object.entries(MARKETS))}${sel("lbTf", "tf", tfs.map(x => [x, x]))}${sel("lbSes", "ses", Object.entries(SESSIONS))}</div>
+    <div class="tbox"><table class="lb"><thead><tr><th>#</th><th>Strategy</th>${LB_COLS.map(([k, l]) => `<th class="r"><button type="button" class="thb${f.sort === k ? " on" : ""}" data-lbsort="${k}">${l}${f.sort === k ? (f.dir > 0 ? " ▼" : " ▲") : ""}</button></th>`).join("")}<th class="r">Streak</th></tr></thead><tbody>
+    ${rows.map((x, i) => `<tr class="lbrow${f.selId === x.s.id ? " on" : ""}" data-lb-open="${esc(x.s.id)}"><td class="mut">${i + 1}</td><td><b style="font-weight:600">${esc(x.s.name)}</b><br><span class="mut xs">${esc(x.s.timeframe || "")} · ${MARKETS[marketOf(x.s)]}</span></td>
+      <td class="r">${x.wr == null ? "—" : Math.round(x.wr) + "%"}</td><td class="r ${cls(x.pips)}">${fmtPips(x.pips)}</td><td class="r ${cls(x.usd)}">${x.n ? signed(x.usd) : "—"}</td><td class="r">${fmtNum(x.pf)}</td>
+      <td class="r"><span class="pos">${x.tp}</span> / <span class="neg">${x.sl}</span> / <span class="amb-t">${x.be}</span></td><td class="r neg">${x.dd ? fmtPips(-x.dd) : "—"}</td><td class="r">${x.rr == null ? "—" : "1:" + x.rr.toFixed(2)}</td><td class="r">${x.n}</td>
+      <td class="r ${x.trend > 0 ? "pos" : x.trend < 0 ? "neg" : "mut"}">${x.trend == null ? "—" : (x.trend > 0 ? "▲ " : x.trend < 0 ? "▼ " : "") + Math.abs(Math.round(x.trend)) + "%"}</td><td class="r ${/W/.test(x.streak) ? "pos" : /L/.test(x.streak) ? "neg" : "mut"}">${x.streak}</td></tr>`).join("") || emptyRow(12, "No strategies match these filters.")}
+    </tbody></table></div></div>
+<!--cut-->  <section class="w s6"><div class="wh"><span class="wt">${ico}Live setups</span><span class="chip sm">${open.length} open${A.quote ? " · " + esc(A.quote.symbol) + " " + px(A.quote.price) : ""}</span></div>${liveTracker(open)}</section><!--cut-->
+  <div id="lbDetail" style="display:contents">${f.selId ? lbDetail(f.selId) : ""}</div>`.split("<!--cut-->");
+}
+function liveTracker(open){
+  const q = S.adm.quote;
+  if (!open.length) return `<p class="dim sm">No setup is open right now.</p>`;
+  return `<div class="list">${open.map(x => { const d = x.side === "buy" ? 1 : -1, pip = pipOf(x.symbol), price = q && q.symbol === x.symbol ? Number(q.price) : null;
+    const moved = price == null ? null : d * (price - x.entry) / pip, toTp = price == null ? null : d * (x.tp - price) / pip, toSl = price == null ? null : d * (price - x.sl) / pip, span = Math.abs(x.tp - x.sl) || 1, pos = price == null ? 50 : Math.max(0, Math.min(100, d * (price - x.sl) / span * 100));
+    return `<div class="trk"><div class="wh"><span><b style="font-weight:600">${esc(stratName(x.strategy_id))}</b> ${sideTag(x.side)} <span class="mut xs">${agoTxt(x.triggered_at)}</span></span><span class="num ${cls(moved)}" style="font-size:16px">${moved == null ? "—" : fmtPips(moved) + " p"}</span></div>
+      <div class="trkbar"><i style="left:${pos.toFixed(1)}%"></i></div><div class="wh mut xs"><span>SL ${px(x.sl)}${toSl == null ? "" : " · " + toSl.toFixed(1) + " p away"}</span><span>Best ${fmtPips(x.mfe)} · Worst ${fmtPips(x.mae)}</span><span>TP ${px(x.tp)}${toTp == null ? "" : " · " + toTp.toFixed(1) + " p away"}</span></div></div>`; }).join("")}</div>
+    ${q ? "" : `<p class="hint">Live distance appears once an EA running v2.12 reports the price.</p>`}`;
+}
+function lineSvg(vals, h, col, fill){
+  if (vals.length < 2) return `<p class="dim sm">Not enough closed setups yet.</p>`;
+  const lo = Math.min(0, ...vals), hi = Math.max(0, ...vals), rg = hi - lo || 1, X = i => (i / (vals.length - 1) * 600).toFixed(1), Y = v => (h - 4 - (v - lo) / rg * (h - 8)).toFixed(1), pts = vals.map((v, i) => `${X(i)},${Y(v)}`).join(" ");
+  return `<svg class="lsvg" viewBox="0 0 600 ${h}" preserveAspectRatio="none" style="height:${h}px" aria-hidden="true"><line x1="0" x2="600" y1="${Y(0)}" y2="${Y(0)}" stroke="rgba(255,255,255,.15)" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>${fill ? `<polygon points="0,${Y(0)} ${pts} 600,${Y(0)}" fill="${fill}"/>` : ""}<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`;
+}
+function lbDetail(sid){
+  const s = S.strategies.find(x => x.id === sid); if (!s) return "";
+  const st = lbStats(closedIn(lbBase(sid), lbWindow())), c = st.list, tzn = tz();
+  let cum = 0, peak = 0; const eq = c.map(x => cum += Number(x.pips) || 0), dd = eq.map(v => { peak = Math.max(peak, v); return v - peak; });
+  const hm = {}, part = (d, o) => new Intl.DateTimeFormat("en-US", Object.assign({ timeZone:tzn }, o)).format(new Date(d));
+  c.forEach(x => { const k = part(x.triggered_at, { weekday:"short" }) + "|" + (+part(x.triggered_at, { hour:"numeric", hourCycle:"h23" })); const o = hm[k] = hm[k] || { n:0, w:0 }; o.n++; if (x.status === "tp") o.w++; });
+  const DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], by = key => { const g = {}; c.forEach(x => { const k = key(x); (g[k] = g[k] || []).push(x); }); return Object.entries(g).map(([k, l]) => [k, lbStats(l)]); };
+  const months = {}; c.forEach(x => { const k = dayKey(x.closed_at).slice(0, 7); months[k] = (months[k] || 0) + (Number(x.pips) || 0); });
+  const years = [...new Set(Object.keys(months).map(k => k.slice(0, 4)))].sort().reverse(), mx = Math.max(1, ...Object.values(months).map(Math.abs));
+  const sorted = c.slice().sort((a, b) => b.pips - a.pips), tr = x => `<tr><td class="dim">${fmtDT(x.closed_at)}</td><td>${sideTag(x.side)}</td><td>${resTag(x.status)}</td><td class="r ${cls(+x.pips)}">${fmtPips(x.pips)}</td></tr>`;
+  const kvs = l => l.map(([k, t]) => `<div class="kv"><span>${esc(k)}</span><span>${Math.round(t.wr)}% <span class="mut xs">· ${t.n} · ${fmtPips(t.pips)} p</span></span></div>`).join("") || `<p class="dim sm">No data.</p>`;
+  return `<section class="w w-lit s12" id="lbBox"><div class="wh"><span class="wt">${ico}${esc(s.name)} · details</span><span style="display:flex;gap:8px;align-items:center"><span class="chip sm">${st.n} closed · ${st.wr == null ? "—" : Math.round(st.wr) + "%"} win · ${fmtPips(st.pips)} pips</span><button type="button" class="chip sm" data-lb-close>Close</button></span></div>
+    ${advTiles(st)}${tpslOptimizer(st)}
+    <div class="grid" style="gap:16px"><div class="s8 list" style="gap:8px"><span class="lab">Equity curve (pips)</span>${lineSvg(eq, 150, eq[eq.length - 1] >= 0 ? "#3DF5B0" : "#FF6B81", "rgba(139,108,255,.14)")}<span class="lab">Drawdown (pips)</span>${lineSvg(dd, 70, "#FF6B81", "rgba(255,107,129,.16)")}</div>
+      <div class="s4 list" style="gap:10px"><span class="lab">By session</span>${kvs(by(x => SESSIONS[sessionOf(x.triggered_at)]))}<span class="lab">By symbol</span>${kvs(by(x => x.symbol || "—"))}<span class="lab">Timeframe</span><div class="kv"><span>${esc(s.timeframe || "—")}</span><span class="mut xs">fixed for this strategy</span></div></div></div>
+    <span class="lab">Win rate by weekday and hour <span class="mut">(${esc(tzn)})</span></span>
+    <div class="tbox hmap"><table><thead><tr><th></th>${Array.from({ length:24 }, (_, h) => `<th class="c">${h}</th>`).join("")}</tr></thead><tbody>${DAYS.map(d => `<tr><th>${d}</th>${Array.from({ length:24 }, (_, h) => { const o = hm[d + "|" + h]; return o ? `<td class="c" title="${d} ${h}:00 · ${Math.round(o.w * 100 / o.n)}% of ${o.n}" style="background:${o.w / o.n >= .5 ? `rgba(61,245,176,${(.15 + .6 * o.w / o.n).toFixed(2)})` : `rgba(255,107,129,${(.15 + .6 * (1 - o.w / o.n)).toFixed(2)})`}">${o.n}</td>` : `<td></td>`; }).join("")}</tr>`).join("")}</tbody></table></div>
+    <span class="lab">Monthly results (pips)</span>
+    <div class="tbox"><table><thead><tr><th>Year</th>${["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].map(m => `<th class="c">${m}</th>`).join("")}<th class="r">Total</th></tr></thead><tbody>${years.map(y => { let t = 0; return `<tr><th>${y}</th>${Array.from({ length:12 }, (_, m) => { const v = months[`${y}-${pad(m + 1)}`]; if (v != null) t += v; return v == null ? `<td></td>` : `<td class="c ${cls(v)}" style="background:${v >= 0 ? "rgba(61,245,176," : "rgba(255,107,129,"}${(.06 + .3 * Math.abs(v) / mx).toFixed(2)})">${fmtPips(v)}</td>`; }).join("")}<td class="r ${cls(t)}">${fmtPips(t)}</td></tr>`; }).join("") || emptyRow(14, "No closed setups in this range.")}</tbody></table></div>
+    <div class="grid" style="gap:16px"><div class="s6 list"><span class="lab">Best trades</span><div class="tbox tight"><table><tbody>${sorted.slice(0, 5).map(tr).join("") || emptyRow(4, "None")}</tbody></table></div></div><div class="s6 list"><span class="lab">Worst trades</span><div class="tbox tight"><table><tbody>${sorted.slice(-5).reverse().map(tr).join("") || emptyRow(4, "None")}</tbody></table></div></div></div>
+    <span class="lab">Setup history</span>
+    <div class="tbox" style="max-height:460px;overflow:auto"><table><thead><tr><th>Triggered</th><th>Side</th><th class="r">Entry</th><th class="r">SL</th><th class="r">TP</th><th>Result</th><th class="r">Pips</th><th class="r">Duration</th><th class="r">Max for</th><th class="r">Max against</th></tr></thead><tbody>
+    ${c.slice().reverse().slice(0, 300).map(x => `<tr><td><button type="button" class="btn-plain" data-setup="${x.id}">${fmtDT(x.triggered_at)}</button></td><td>${sideTag(x.side)}</td><td class="r">${px(x.entry)}</td><td class="r">${px(x.sl)}</td><td class="r">${px(x.tp)}</td><td>${resTag(x.status)}</td><td class="r ${cls(+x.pips)}">${fmtPips(x.pips)}</td><td class="r dim">${fmtDur(new Date(x.closed_at) - new Date(x.triggered_at))}</td><td class="r pos">${x.mfe == null ? "—" : fmtPips(x.mfe)}</td><td class="r neg">${x.mae == null ? "—" : fmtPips(x.mae)}</td></tr>`).join("") || emptyRow(10, "No closed setups in this range.")}
+    </tbody></table></div></section>`;
+}
+
+// Sentiment (admin only): agents score news for XAUUSD; 0 = very bearish, 50 = neutral, 100 = very bullish for gold
+const IMPW = { high:3, medium:2, low:1 };
+const moodOf = v => v == null ? "No data" : v >= 60 ? "Bullish" : v <= 40 ? "Bearish" : "Neutral";
+function sentAvg(list){ let w = 0, t = 0; list.forEach(n => { if (n.score == null) return; const k = IMPW[n.impact] || 1; w += k; t += k * n.score; }); return w ? t / w : null; }
+const newsIn = (a, b) => (S.adm.news || []).filter(n => { const t = new Date(n.published_at || n.created_at).getTime(); return t >= a && t < b; });
+function gaugeSvg(v){
+  const a = Math.PI * (1 - (v == null ? 50 : v) / 100), x = 100 + 78 * Math.cos(a), y = 100 - 78 * Math.sin(a);
+  return `<svg viewBox="0 0 200 112" class="sgauge" aria-hidden="true"><defs><linearGradient id="sgg" x1="0" x2="1"><stop offset="0" stop-color="#FF6B81"/><stop offset=".5" stop-color="#C9B8FF"/><stop offset="1" stop-color="#3DF5B0"/></linearGradient></defs>
+    <path d="M 22 100 A 78 78 0 0 1 178 100" fill="none" stroke="url(#sgg)" stroke-width="14" stroke-linecap="round" opacity=".9"/><line x1="100" y1="100" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="7" fill="#fff"/></svg>`;
+}
+function sentVsStrategy(){
+  const since = Date.now() - 90 * 864e5;
+  return S.strategies.filter(s => !s.archived).map(s => {
+    const g = { with:[], against:[], neutral:[] };
+    S.adm.setups.filter(x => x.strategy_id === s.id && ["tp","sl","be"].includes(x.status) && x.triggered_at && new Date(x.triggered_at) >= since).forEach(x => {
+      const t = new Date(x.triggered_at).getTime(), v = sentAvg(newsIn(t - 12 * 36e5, t)); if (v == null) return;
+      const k = v > 55 ? (x.side === "buy" ? "with" : "against") : v < 45 ? (x.side === "sell" ? "with" : "against") : "neutral"; g[k].push(x);
+    });
+    return [s, g];
+  });
+}
+function sentimentParts(){
+  const A = S.adm, now = Date.now(), news = (A.news || []).slice().sort((a, b) => new Date(b.published_at || b.created_at) - new Date(a.published_at || a.created_at));
+  const cur = sentAvg(newsIn(now - 864e5, now)), prev = sentAvg(newsIn(now - 2 * 864e5, now - 864e5)), day = newsIn(now - 864e5, now).filter(n => n.score != null);
+  const ev = (A.events || []).filter(e => new Date(e.at) > now - 3 * 36e5 && new Date(e.at) < now + 48 * 36e5).sort((a, b) => new Date(a.at) - new Date(b.at)), brief = (A.briefs || [])[0];
+  const f = S.sf || "all", shown = news.filter(n => f === "all" || (f === "high" ? n.impact === "high" : n.sentiment === f)).slice(0, 60);
+  // hourly buckets for 7 days: sentiment average and last price
+  const H = 7 * 24, start = now - H * 36e5, sv = [], pv = [];
+  for (let i = 0; i < H; i++) { const a = start + i * 36e5; sv.push(sentAvg(newsIn(a - 6 * 36e5, a + 36e5))); const p = (A.prices || []).filter(r => new Date(r.ts).getTime() < a + 36e5).pop(); pv.push(p ? Number(p.price) : null); }
+  const pl = pv.filter(v => v != null), pmin = Math.min(...pl), pmax = Math.max(...pl), X = i => (i / (H - 1) * 600).toFixed(1);
+  const path = (vals, y) => vals.map((v, i) => v == null ? null : `${X(i)},${y(v).toFixed(1)}`).filter(Boolean).join(" ");
+  const chart = `<svg class="lsvg" viewBox="0 0 600 170" preserveAspectRatio="none" style="height:170px" aria-hidden="true"><line x1="0" x2="600" y1="85" y2="85" stroke="rgba(255,255,255,.12)" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>
+    ${pl.length > 1 ? `<polyline points="${path(pv, v => 160 - (v - pmin) / ((pmax - pmin) || 1) * 150)}" fill="none" stroke="#E3B565" stroke-width="1.6" vector-effect="non-scaling-stroke"/>` : ""}<polyline points="${path(sv, v => 165 - v / 100 * 160)}" fill="none" stroke="#C9B8FF" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`;
+  const wr = l => l.length ? `${Math.round(l.filter(x => x.status === "tp").length * 100 / l.length)}% <span class="mut xs">of ${l.length}</span>` : `<span class="mut">—</span>`;
+  const chip = n => n.score == null ? `<span class="chip sm">scoring…</span>` : `<span class="status ${n.score >= 60 ? "running" : n.score <= 40 ? "stopped" : "off"}">${n.score} ${esc(n.sentiment || "")}</span>`;
+  return `<div class="w w-lit s4 sent-card"><div class="wh"><span class="wt">${ico}XAUUSD mood</span><span class="chip sm">Last 24 h</span></div>${gaugeSvg(cur)}
+      <div style="text-align:center"><span class="num" style="font-size:34px">${cur == null ? "—" : Math.round(cur)}</span><br><b class="${cur >= 60 ? "pos" : cur <= 40 ? "neg" : ""}">${moodOf(cur)}</b><br><span class="mut xs">${day.length} scored items${cur != null && prev != null ? ` · ${cur >= prev ? "▲" : "▼"} ${Math.abs(Math.round(cur - prev))} vs yesterday` : ""}${A.quote ? ` · price ${px(A.quote.price)}` : ""}</span></div></div>
+    <!--cut--><section class="w s4"><div class="wh"><span class="wt">${ico}Morning brief</span><span class="chip sm">${brief ? esc(brief.day) : "Not written yet"}</span></div><div class="brief">${brief ? esc(brief.text) : `<p class="dim sm">The daily briefer writes a summary here every morning at 08:00 Dubai time.</p>`}</div></section>
+    <!--cut--><section class="w s8"><div class="wh"><span class="wt">${ico}Sentiment vs price · 7 days</span><span class="legend"><span><i style="background:#C9B8FF"></i>Sentiment (0–100)</span><span><i style="background:#E3B565"></i>XAUUSD price</span></span></div><div class="frame">${chart}</div></section>
+    <!--cut--><section class="w s6"><div class="wh"><span class="wt">${ico}High-impact events</span><span class="hint">USD events from the MT5 economic calendar, next 48 hours. Read by your EA.</span></div>
+      <div class="list">${ev.map(e => { const m = (new Date(e.at) - now) / 6e4; return `<div class="kv"><span><b style="font-weight:600">${esc(e.title)}</b><br><span class="mut xs">${esc(e.currency || "")} · forecast ${e.forecast ?? "—"} · previous ${e.previous ?? "—"}${e.actual != null ? " · actual " + e.actual : ""}</span></span><span class="${m > 0 && m < 60 ? "neg" : "dim"} xs" style="text-align:right">${fmtDT(e.at)}<br>${m > 0 ? (m < 60 ? "in " + Math.round(m) + " min" : "in " + Math.round(m / 60) + " h") : "released"}</span></div>`; }).join("") || `<p class="dim sm">No high-impact events in the next 48 hours.</p>`}</div></section>
+    <!--cut--><section class="w s5"><div class="wh"><span class="wt">${ico}Sentiment vs strategy</span><span class="hint">Last 90 days. "With" = news mood agreed with the trade direction in the 12 hours before it triggered.</span></div>
+      <div class="tbox tight"><table><thead><tr><th>Strategy</th><th class="r">With mood</th><th class="r">Against mood</th><th class="r">Neutral</th></tr></thead><tbody>${sentVsStrategy().map(([s, g]) => `<tr><td>${esc(s.name)}</td><td class="r">${wr(g.with)}</td><td class="r">${wr(g.against)}</td><td class="r">${wr(g.neutral)}</td></tr>`).join("")}</tbody></table></div></section>
+    <!--cut--><section class="w s7"><div class="wh"><span class="wt">${ico}News feed</span><div class="seg">${[["all","All"],["bullish","Bullish"],["bearish","Bearish"],["high","High impact"]].map(([v, l]) => `<button type="button" data-sf="${v}" class="${f === v ? "on" : ""}">${l}</button>`).join("")}</div></div>
+      <div class="list" style="max-height:560px;overflow:auto">${shown.map(n => `<div class="issue"><span class="grow"><a href="${esc(n.url)}" target="_blank" rel="noopener" class="sm" style="color:#fff;text-decoration:none">${esc(n.title)}</a><br><span class="mut xs">${esc(n.source || "")} · ${agoTxt(n.published_at || n.created_at)}${n.impact ? " · " + esc(n.impact) + " impact" : ""}${n.why ? " · " + esc(n.why) : ""}</span></span>${chip(n)}</div>`).join("") || `<p class="dim sm">No news yet. The collector runs every 10 minutes once it's set up.</p>`}</div></section>
+    <!--cut--><section class="w s12"><div class="wh"><span class="wt">${ico}News sources</span><span class="hint">RSS feeds the collector reads every 10 minutes. Only add feeds you're allowed to use.</span></div>
+      <div class="list">${(A.sources || []).map(x => `<div class="kv"><span><b style="font-weight:600">${esc(x.name)}</b><br><span class="mut xs mono">${esc(x.url)}</span>${x.last_error ? `<br><span class="neg xs">${esc(x.last_error)}</span>` : ""}</span><span class="acts"><label class="sw"><input type="checkbox" data-src-on="${x.id}"${x.enabled ? " checked" : ""} aria-label="Use ${esc(x.name)}"><i></i></label><button type="button" class="btn-plain neg" data-src-del="${x.id}">Remove</button></span></div>`).join("") || `<p class="dim sm">No sources yet.</p>`}</div>
+      <form id="srcAdd" class="filters" novalidate><label class="field" for="srcName">Name<input id="srcName" type="text" placeholder="FXStreet news"></label><label class="field" for="srcUrl" style="flex:1;min-width:240px">RSS URL<input id="srcUrl" type="url" placeholder="https://…/rss"></label><button type="submit" class="glass sm glass-p" style="margin-bottom:3px">Add source</button></form></section>`.split("<!--cut-->");
+}
+// ---- advanced analytics (all in pips, from TradingView setups) ----
+const clamp01 = v => Math.max(0, Math.min(1, v));
+function advStats(st){
+  const p = st.list.map(x => Number(x.pips) || 0), n = p.length, mean = n ? p.reduce((a, x) => a + x, 0) / n : 0;
+  const wins = p.filter(x => x > 0), losses = p.filter(x => x < 0), avg = l => l.length ? l.reduce((a, x) => a + x, 0) / l.length : 0;
+  const sd = n > 1 ? Math.sqrt(p.reduce((a, x) => a + (x - mean) ** 2, 0) / (n - 1)) : 0, dn = n > 1 ? Math.sqrt(p.reduce((a, x) => a + Math.min(0, x) ** 2, 0) / (n - 1)) : 0;
+  const days = {}; st.list.forEach(x => { const k = dayKey(x.closed_at); days[k] = (days[k] || 0) + (Number(x.pips) || 0); });
+  const dv = Object.values(days);
+  return { exp:mean, avgW:avg(wins), avgL:avg(losses), payoff:losses.length ? avg(wins) / -avg(losses) : null, sharpe:sd ? mean / sd : null, sortino:dn ? mean / dn : null,
+    rf:st.dd ? st.pips / st.dd : st.pips > 0 ? Infinity : null, cons:dv.length ? dv.filter(v => v > 0).length * 100 / dv.length : null, days:dv.length };
+}
+// one 0-100 grade: win rate 25%, profit factor 25%, recovery 20%, consistency (green days) 15%, sample size 15%
+function scoreOf(st, a){
+  if (!st.n) return null;
+  const parts = { "Win rate":st.wr, "Profit factor":clamp01((st.pf === Infinity ? 3 : st.pf || 0) / 3) * 100, "Recovery":clamp01((a.rf === Infinity ? 5 : Math.max(0, a.rf || 0)) / 5) * 100, "Consistency":a.cons || 0, "Sample size":clamp01(st.n / 40) * 100 };
+  const w = { "Win rate":.25, "Profit factor":.25, "Recovery":.2, "Consistency":.15, "Sample size":.15 };
+  return { v:Math.round(Object.keys(w).reduce((t, k) => t + w[k] * parts[k], 0)), parts };
+}
+const gradeOf = v => v == null ? ["—","off"] : v >= 80 ? ["A","running"] : v >= 70 ? ["B","running"] : v >= 55 ? ["C","paused"] : v >= 40 ? ["D","paused"] : ["E","stopped"];
+const scorePill = sc => { const [g, c] = gradeOf(sc && sc.v); return `<span class="status ${c}" title="${sc ? Object.entries(sc.parts).map(([k, v]) => `${k} ${Math.round(v)}`).join(" · ") : "No closed setups"}">${sc ? sc.v + " · " + g : "—"}</span>`; };
+// Monte Carlo: 1,000 random orderings (bootstrap) of the next 100 setups from this strategy's own results
+function monteCarlo(list, runs = 1000, next = 100){
+  const p = list.map(x => Number(x.pips) || 0); if (p.length < 10) return null;
+  let seed = p.length * 7919 + 17; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const fin = [], dds = []; let neg = 0;
+  for (let r = 0; r < runs; r++) { let c = 0, pk = 0, dd = 0; for (let i = 0; i < next; i++) { c += p[Math.floor(rnd() * p.length)]; pk = Math.max(pk, c); dd = Math.max(dd, pk - c); } fin.push(c); dds.push(dd); if (c < 0) neg++; }
+  fin.sort((a, b) => a - b); dds.sort((a, b) => a - b); const q = (a, x) => a[Math.min(a.length - 1, Math.floor(x * a.length))];
+  return { p5:q(fin, .05), p50:q(fin, .5), p95:q(fin, .95), dd50:q(dds, .5), dd95:q(dds, .95), neg:neg * 100 / runs, next };
+}
+function advTiles(st){
+  const a = advStats(st), sc = scoreOf(st, a), mc = monteCarlo(st.list), t = (k, v, sub, c = "") => `<div class="tile kt"><span class="lab">${k}</span><span class="num ${c}">${v}</span><span class="sub">${sub}</span></div>`;
+  return `<div class="grid5">${t("Score", sc ? sc.v + " / 100" : "—", sc ? "Grade " + gradeOf(sc.v)[0] : "No data", sc && sc.v >= 70 ? "pos" : sc && sc.v < 40 ? "neg" : "")}${t("Expectancy", fmtPips(a.exp) + " p", "Average pips per setup", cls(a.exp))}${t("Avg win / loss", `${fmtPips(a.avgW)} / ${fmtPips(a.avgL)}`, "Payoff ratio " + fmtNum(a.payoff))}${t("Sharpe · Sortino", `${fmtNum(a.sharpe)} · ${fmtNum(a.sortino)}`, "Per setup; above 0.3 is strong")}${t("Recovery factor", fmtNum(a.rf), "Net pips ÷ max drawdown")}</div>
+    ${sc ? `<div class="scorebar">${Object.entries(sc.parts).map(([k, v]) => `<div><span class="mut xs">${k}</span><span class="lp-bar"><b style="width:${Math.round(v)}%"></b></span><span class="xs">${Math.round(v)}</span></div>`).join("")}</div>` : ""}
+    <div class="mc"><span class="lab">Monte Carlo · next ${mc ? mc.next : 100} setups, 1,000 simulations</span>${mc ? `<div class="grid5">${t("Likely result", fmtPips(mc.p50) + " p", "Median outcome", cls(mc.p50))}${t("Bad case (5%)", fmtPips(mc.p5) + " p", "1 in 20 runs is worse", cls(mc.p5))}${t("Good case (95%)", fmtPips(mc.p95) + " p", "1 in 20 runs is better", cls(mc.p95))}${t("Worst drawdown (95%)", fmtPips(-mc.dd95) + " p", "Typical: " + fmtPips(-mc.dd50) + " p", "neg")}${t("Chance of a loss", Math.round(mc.neg) + "%", "Ending below 0 after " + mc.next, mc.neg > 25 ? "neg" : "")}</div>` : `<p class="dim sm">Needs at least 10 closed setups in this range.</p>`}</div>`;
+}
+// compare two strategies over time + correlation of daily results
+function dailyPips(sid){ const d = {}; closedIn(lbBase(sid), lbWindow()).forEach(x => { const k = dayKey(x.closed_at); d[k] = (d[k] || 0) + (Number(x.pips) || 0); }); return d; }
+function corr(a, b){ const n = a.length; if (n < 5) return null; const ma = a.reduce((s, x) => s + x, 0) / n, mb = b.reduce((s, x) => s + x, 0) / n; let num = 0, da = 0, db = 0; for (let i = 0; i < n; i++) { num += (a[i] - ma) * (b[i] - mb); da += (a[i] - ma) ** 2; db += (b[i] - mb) ** 2; } return da && db ? num / Math.sqrt(da * db) : null; }
+function comparePanel(){
+  const list = S.strategies.filter(s => !s.archived), [ida, idb] = S.cmp && list.some(s => s.id === S.cmp[0]) ? S.cmp : [list[0] && list[0].id, list[1] && list[1].id];
+  const cols = ["#C9B8FF", "#3DF5B0"], w = lbWindow(), data = [ida, idb].map(id => { const st = lbStats(closedIn(lbBase(id), w)); return { id, st, a:advStats(st) }; });
+  const pts = data.map(d => { let c = 0; return d.st.list.map(x => [new Date(x.closed_at).getTime(), c += Number(x.pips) || 0]); });
+  const all = pts.flat(), t0 = Math.min(...all.map(x => x[0])), t1 = Math.max(...all.map(x => x[0])), lo = Math.min(0, ...all.map(x => x[1])), hi = Math.max(0, ...all.map(x => x[1])), rg = hi - lo || 1;
+  const X = t => ((t - t0) / ((t1 - t0) || 1) * 600).toFixed(1), Y = v => (156 - (v - lo) / rg * 150).toFixed(1);
+  const svg = all.length > 1 ? `<svg class="lsvg" viewBox="0 0 600 160" preserveAspectRatio="none" style="height:160px" aria-hidden="true"><line x1="0" x2="600" y1="${Y(0)}" y2="${Y(0)}" stroke="rgba(255,255,255,.15)" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>${pts.map((l, i) => l.length > 1 ? `<polyline points="${l.map(([t, v]) => X(t) + "," + Y(v)).join(" ")}" fill="none" stroke="${cols[i]}" stroke-width="2" vector-effect="non-scaling-stroke"/>` : "").join("")}</svg>` : `<p class="dim sm">Not enough closed setups in this range.</p>`;
+  const opt = sel => list.map(s => `<option value="${esc(s.id)}"${s.id === sel ? " selected" : ""}>${esc(s.name)}</option>`).join("");
+  const row = (k, f) => `<tr><td class="dim">${k}</td>${data.map(d => `<td class="r">${f(d)}</td>`).join("")}</tr>`;
+  return `<section class="w s6"><div class="wh"><span class="wt">${ico}Compare strategies</span><span class="acts"><select class="cell-sel" data-cmp="0" aria-label="First strategy">${opt(ida)}</select><span class="mut">vs</span><select class="cell-sel" data-cmp="1" aria-label="Second strategy">${opt(idb)}</select></span></div>
+    <div class="frame">${svg}</div><div class="legend">${data.map((d, i) => `<span><i style="background:${cols[i]}"></i>${esc(stratName(d.id))}</span>`).join("")}</div>
+    <div class="tbox tight"><table><thead><tr><th></th>${data.map((d, i) => `<th class="r" style="color:${cols[i]}">${esc(stratName(d.id))}</th>`).join("")}</tr></thead><tbody>
+    ${row("Score", d => scorePill(scoreOf(d.st, d.a)))}${row("Win rate", d => d.st.wr == null ? "—" : Math.round(d.st.wr) + "%")}${row("Net pips", d => `<span class="${cls(d.st.pips)}">${fmtPips(d.st.pips)}</span>`)}${row("Profit factor", d => fmtNum(d.st.pf))}${row("Expectancy", d => fmtPips(d.a.exp))}${row("Max DD", d => d.st.dd ? fmtPips(-d.st.dd) : "—")}${row("Sharpe", d => fmtNum(d.a.sharpe))}${row("Setups", d => d.st.n)}
+    </tbody></table></div></section>`;
+}
+function corrPanel(){
+  const list = S.strategies.filter(s => !s.archived), dp = list.map(s => dailyPips(s.id)), days = [...new Set(dp.flatMap(d => Object.keys(d)))].sort();
+  const vec = d => days.map(k => d[k] || 0), V = dp.map(vec);
+  return `<section class="w s6"><div class="wh"><span class="wt">${ico}Correlation</span><span class="hint">How similar the strategies' daily results are. Near +1 = they win and lose together (no diversification). Near 0 = independent. Negative = they offset each other.</span></div>
+    <div class="tbox tight"><table class="corr"><thead><tr><th></th>${list.map(s => `<th class="c" style="white-space:normal;min-width:64px;font-size:10px;line-height:1.25">${esc(s.name)}</th>`).join("")}</tr></thead><tbody>
+    ${list.map((s, i) => `<tr><th>${esc(s.name)}</th>${list.map((t, j) => { const c = i === j ? 1 : corr(V[i], V[j]); return `<td class="c" style="background:${c == null ? "transparent" : c >= 0 ? `rgba(139,108,255,${(.08 + .55 * c).toFixed(2)})` : `rgba(61,245,176,${(.08 + .55 * -c).toFixed(2)})`}">${c == null ? "—" : c.toFixed(2)}</td>`; }).join("")}</tr>`).join("")}
+    </tbody></table></div></section>`;
+}
+
+// Alert rules: "alert me if a strategy's accuracy falls X% within N days" (last N days vs the N days before)
+function ruleAlerts(){
+  const out = [], now = Date.now();
+  (S.adm.rules || []).filter(r => r.enabled).forEach(r => {
+    const n = Math.max(1, +r.days || 7), cur = [dayKey(now - (n - 1) * 864e5), "9999"], prev = [dayKey(now - (2 * n - 1) * 864e5), dayKey(now - n * 864e5)];
+    S.strategies.filter(s => !s.archived && (!r.strategy_id || r.strategy_id === s.id)).forEach(s => {
+      const all = S.adm.setups.filter(x => x.strategy_id === s.id), a = lbStats(closedIn(all, cur)), b = lbStats(closedIn(all, prev));
+      if (a.n >= 3 && b.n >= 3 && b.wr - a.wr >= +r.drop_pct) out.push({ kind:"rule", s, at:now, title:`${s.name}: accuracy fell ${Math.round(b.wr - a.wr)}% in ${n} day${n === 1 ? "" : "s"}`, sub:`${Math.round(b.wr)}% → ${Math.round(a.wr)}% (${b.n} → ${a.n} closed setups) · rule: ${r.drop_pct}% in ${n} days` });
+    });
+  });
+  S.strategies.filter(s => !s.archived).forEach(s => {
+    const c = lbStats(closedIn(S.adm.setups.filter(x => x.strategy_id === s.id), ["0000","9999"])).list.slice(-3);
+    if (c.length === 3 && c.every(x => x.status === "sl")) out.push({ kind:"streak", s, at:new Date(c[2].closed_at).getTime(), title:`${s.name}: 3 SL in a row`, sub:"Last loss " + agoTxt(c[2].closed_at) });
+  });
+  return out;
+}
+// everything for the Alerts tab: rule breaches, SL streaks, news coming / just released with figures, high-impact headlines
+function scoringAlerts(){
+  const now = Date.now(), fig = e => [e.actual != null ? "Actual " + e.actual : "", "Forecast " + (e.forecast ?? "—"), "Previous " + (e.previous ?? "—")].filter(Boolean).join(" · ");
+  const ev = (S.adm.events || []).filter(e => { const t = new Date(e.at).getTime(); return t > now - 3 * 36e5 && t < now + 24 * 36e5; }).map(e => {
+    const m = (new Date(e.at) - now) / 6e4;
+    return { kind:"event", at:new Date(e.at).getTime(), soon:m > 0 && m < 60, title:m > 0 ? `${e.currency || ""} ${e.title} in ${m < 60 ? Math.round(m) + " min" : Math.round(m / 60) + " h"}` : `${e.currency || ""} ${e.title} released`, sub:fig(e) + " · " + fmtDT(e.at) };
+  });
+  const hn = (S.adm.news || []).filter(n => n.impact === "high" && now - new Date(n.published_at || n.created_at) < 12 * 36e5).map(n => ({ kind:"news", at:new Date(n.published_at || n.created_at).getTime(), n, title:n.title, sub:`${n.source || ""} · score ${n.score ?? "—"} ${n.sentiment || ""}${n.why ? " · " + n.why : ""}` }));
+  return ruleAlerts().concat(ev, hn).sort((a, b) => (b.kind === "rule") - (a.kind === "rule") || (b.soon ? 1 : 0) - (a.soon ? 1 : 0) || b.at - a.at);
+}
+// Log tab: every signal event from TradingView setups, newest first
+function signalLog(){
+  const out = [];
+  S.adm.setups.forEach(x => {
+    if (x.created_at) out.push({ t:x.created_at, k:"zone", x });
+    if (x.triggered_at) out.push({ t:x.triggered_at, k:"open", x });
+    if (x.closed_at && ["tp","sl","be"].includes(x.status)) out.push({ t:x.closed_at, k:x.status, x });
+  });
+  return out.sort((a, b) => new Date(b.t) - new Date(a.t));
+}
+const LOGK = { zone:["Zone created","close"], open:["Triggered","buy"], tp:["TP","buy"], sl:["SL","sell"], be:["BE","be"] };
+function alertsPanel(){
+  const tab = S.atab || "alerts", al = scoringAlerts(), lf = S.lf || "all", log = signalLog().filter(e => lf === "all" || e.k === lf).slice(0, 300);
+  const icon = { rule:["!","bad"], streak:["!","bad"], event:["◷","warn"], news:["✦","warn"] };
+  const body = tab === "alerts"
+    ? al.map((a, i) => `<div class="issue"><span class="chk"><i class="${a.kind === "event" && !a.soon ? "ok" : icon[a.kind][1]}">${icon[a.kind][0]}</i></span><span class="grow"><span class="sm"><b style="font-weight:600">${esc(a.title)}</b></span><br><span class="mut xs">${esc(a.sub)}</span>${S.why && S.why.t === a.title ? `<span class="why">${S.why.a ? esc(S.why.a) : "Thinking…"}</span>` : ""}</span><button type="button" class="chip sm" data-ai-why="${i}">Why?</button>${a.s && (a.s.admin_status || "active") === "active" ? `<button type="button" class="chip sm" data-admin-pause="${esc(a.s.id)}">Pause for all</button>` : ""}${a.n ? `<a class="chip sm" href="${esc(a.n.url)}" target="_blank" rel="noopener">Open</a>` : ""}</div>`).join("") || `<p class="dim sm">No alerts. Rules are watching every strategy.</p>`
+    : `<div class="seg" style="margin-bottom:8px">${[["all","All"],["tp","TP"],["sl","SL"],["be","BE"],["open","Triggered"],["zone","Zones"]].map(([v, l]) => `<button type="button" data-lf="${v}" class="${lf === v ? "on" : ""}">${l}</button>`).join("")}</div>`
+      + log.map(e => { const x = e.x, [lab, c] = LOGK[e.k]; return `<div class="logrow"><span class="mut xs">${fmtDT(e.t)}</span><span class="side-tag ${c}">${lab}</span><span class="grow sm"><b style="font-weight:600">${esc(stratName(x.strategy_id))}</b> ${sideTag(x.side)} <span class="mut xs">${esc(x.symbol || "")}</span></span><span class="mut xs">${e.k === "zone" ? `${px(x.zone_bottom)} – ${px(x.zone_top)}` : `E ${px(x.entry)} · SL ${px(x.sl)} · TP ${px(x.tp)}`}</span>${["tp","sl","be"].includes(e.k) ? `<span class="${cls(+x.pips)} sm" style="min-width:58px;text-align:right">${fmtPips(x.pips)} p</span>` : `<span style="min-width:58px"></span>`}</div>`; }).join("") || `<p class="dim sm">No signals yet.</p>`;
+  return `<section class="w w-lit s12" id="alertsBox"><div class="wh"><div class="tabs2"><button type="button" data-atab="alerts" class="${tab === "alerts" ? "on" : ""}">Alerts <b>${al.length}</b></button><button type="button" data-atab="log" class="${tab === "log" ? "on" : ""}">Log</button></div></div>
+    <div class="list" style="max-height:560px;overflow:auto">${body}</div></section>`;
+}
+function rulesPanel(){
+  const rules = S.adm.rules || [];
+  return `<section class="w s12"><div class="wh"><span class="wt">${ico}Alert rules</span><span class="hint">Alert when a strategy's accuracy (win rate) falls by at least this much over the last N days, compared with the N days before. Needs 3+ closed setups in each period.</span></div>
+    <div class="list">${rules.map(r => `<div class="kv"><span><b style="font-weight:600">${r.strategy_id ? esc(stratName(r.strategy_id)) : "All strategies"}</b><span class="mut sm"> · accuracy falls ${r.drop_pct}% or more in ${r.days} day${+r.days === 1 ? "" : "s"}</span></span><span class="acts"><label class="sw"><input type="checkbox" data-rule-on="${r.id}"${r.enabled ? " checked" : ""} aria-label="Rule on or off"><i></i></label><button type="button" class="btn-plain neg" data-rule-del="${r.id}">Remove</button></span></div>`).join("") || `<p class="dim sm">No rules yet.</p>`}</div>
+    <form id="ruleAdd" class="filters" novalidate><label class="field" for="ruleStrat">Strategy<select id="ruleStrat"><option value="">All strategies</option>${S.strategies.filter(s => !s.archived).map(s => `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("")}</select></label>
+      <label class="field" for="ruleDrop">Accuracy falls (%)<input id="ruleDrop" type="number" min="1" max="100" value="15"></label><label class="field" for="ruleDays">Within (days)<input id="ruleDays" type="number" min="1" max="90" value="7"></label><button type="submit" class="glass sm glass-p" style="margin-bottom:3px">Add rule</button></form></section>`;
+}
+// AI analyst: daily review + suggestions you approve, and a chat that answers from this page's data
+const AIACT = { keep:["Keep","running"], watch:["Watch","paused"], pause:["Pause","stopped"], resume:["Resume","running"] };
+function aiPanel(){
+  const rv = (S.adm.reviews || []).find(r => r.kind !== "weekly"), chat = S.adm.chat || [], busy = S.aiBusy;
+  return `<section class="w w-lit s12 ai-card" id="aiBox"><div class="wh"><span class="wt">${ico}AI analyst</span><span class="acts"><span class="mut xs">${rv ? "Last review " + agoTxt(rv.created_at) : "No review yet"} · runs daily 08:15 Dubai</span><button type="button" class="glass sm glass-p" data-ai-review ${busy ? "disabled" : ""}>${busy === "review" ? "Reviewing…" : "Run review now"}</button></span></div>
+    <div class="grid" style="gap:16px"><div class="s7 list" style="gap:12px">
+      <div class="brief">${rv ? esc(rv.summary) : `<span class="dim sm">Press "Run review now". The AI reads every strategy's scores, the alerts, the news mood and upcoming events, then suggests what to keep, watch, pause or resume. Nothing changes until you approve.</span>`}</div>
+      ${rv ? `<div class="list">${(rv.suggestions || []).map((x, i) => `<div class="issue"><span class="status ${AIACT[x.action][1]}">${AIACT[x.action][0]}</span><span class="grow"><b style="font-weight:600">${esc(stratName(x.strategy_id))}</b><br><span class="mut xs">${esc(x.reason)}</span></span>
+        ${x.state === "pending" ? `<button type="button" class="chip sm" data-ai-ok="${i}">Approve</button><button type="button" class="btn-plain" data-ai-no="${i}">Dismiss</button>` : x.state === "info" ? "" : `<span class="mut xs">${x.state === "approved" ? "Approved" : "Dismissed"}</span>`}</div>`).join("")}</div>` : ""}
+    </div><div class="s5 list" style="gap:10px"><span class="lab">Ask the analyst</span>
+      <div class="chatbox" id="aiChat">${chat.map(m => `<div class="msg-${m.role}">${esc(m.content)}</div>`).join("") || `<p class="dim sm">Try: "Which strategy is weakest this month and why?" or "Should I pause anything before CPI?"</p>`}${busy === "ask" ? `<div class="msg-ai dim">Thinking…</div>` : ""}</div>
+      <form id="aiAsk" class="savebar" novalidate><label class="field" for="aiQ" style="flex:1"><span class="sr">Question</span><input id="aiQ" type="text" placeholder="Ask about strategies, news, risk…" maxlength="500"></label><button type="submit" class="glass sm glass-p" ${busy ? "disabled" : ""}>Ask</button></form></div></div></section>`;
+}
+// ---- hover charts: several lines, each on its own scale; tooltip shows every value at the cursor ----
+const HC = {}; let hcN = 0;
+function hchart(labels, series, h = 130, opt = {}){
+  const n = labels.length; if (n < 2) return `<p class="dim sm">Not enough data yet.</p>`;
+  const id = "hc" + (++hcN), X = i => (i / (n - 1) * 600).toFixed(1);
+  HC[id] = { labels, series, fl:opt.fl || (x => x) };
+  const lines = series.map((s, k) => { const v = s.v.filter(x => x != null); if (v.length < 2) return "";
+    const lo = Math.min(...v, s.zero ? 0 : Infinity), hi = Math.max(...v, s.zero ? 0 : -Infinity), rg = hi - lo || 1, Y = x => (h - 5 - (x - lo) / rg * (h - 10)).toFixed(1);
+    const pts = s.v.map((x, i) => x == null ? null : `${X(i)},${Y(x)}`).filter(Boolean), first = pts[0].split(",")[0], last = pts[pts.length - 1].split(",")[0];
+    return (k === 0 && s.fill !== false ? `<polygon points="${first},${h} ${pts.join(" ")} ${last},${h}" fill="url(#g${id})"/>` : "") + (s.zero && lo < 0 && hi > 0 ? `<line x1="0" x2="600" y1="${Y(0)}" y2="${Y(0)}" stroke="rgba(255,255,255,.14)" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>` : "")
+      + `<polyline points="${pts.join(" ")}" fill="none" stroke="${s.col}" stroke-width="${k ? 1.4 : 2}" ${k ? 'stroke-dasharray="1 0" opacity=".9"' : ""} vector-effect="non-scaling-stroke"/>`; }).join("");
+  return `<div class="hc" data-hc="${id}" style="height:${h}px"><svg viewBox="0 0 600 ${h}" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${series[0].col}" stop-opacity=".28"/><stop offset="1" stop-color="${series[0].col}" stop-opacity="0"/></linearGradient></defs>${lines}</svg><i class="hc-x"></i><div class="hc-tip"></div></div>`
+    + (series.length > 1 && !opt.noLegend ? `<div class="legend">${series.map(s => `<span><i style="background:${s.col}"></i>${s.name}</span>`).join("")}</div>` : "");
+}
+document.addEventListener("mousemove", e => {
+  const el = e.target.closest && e.target.closest(".hc"); document.querySelectorAll(".hc.on").forEach(x => x !== el && x.classList.remove("on")); if (!el) return;
+  const d = HC[el.dataset.hc]; if (!d) return; const r = el.getBoundingClientRect(), n = d.labels.length, i = Math.max(0, Math.min(n - 1, Math.round((e.clientX - r.left) / r.width * (n - 1)))), x = i / (n - 1) * r.width;
+  el.classList.add("on"); el.querySelector(".hc-x").style.left = x + "px";
+  const tip = el.querySelector(".hc-tip"); tip.innerHTML = `<b>${esc(String(d.fl(d.labels[i])))}</b>` + d.series.map(s => `<span><i style="background:${s.col}"></i>${s.name} <b>${s.v[i] == null ? "—" : s.f ? s.f(s.v[i]) : s.v[i]}</b></span>`).join("");
+  tip.style.left = Math.min(Math.max(0, x - tip.offsetWidth / 2), r.width - tip.offsetWidth) + "px";
+});
+
+// ---- macro data (FRED + CFTC, saved daily by the macro-agent) ----
+const MAC = {
+  DFEDTARU:["Fed rate", v => v.toFixed(2) + "%", "Upper bound of the Fed funds target range"],
+  DGS2:["US 2Y", v => v.toFixed(2) + "%", "2-year Treasury yield: follows where the market expects Fed rates to go"],
+  DGS10:["US 10Y", v => v.toFixed(2) + "%", "10-year Treasury yield"],
+  DFII10:["Real yield 10Y", v => v.toFixed(2) + "%", "10-year yield after inflation (TIPS). Gold usually falls when this rises"],
+  T10YIE:["Inflation exp.", v => v.toFixed(2) + "%", "10-year breakeven inflation: what the bond market expects inflation to average"],
+  DTWEXBGS:["Dollar index", v => v.toFixed(1), "Broad US dollar index (Fed). A stronger dollar usually weighs on gold"],
+  CPI_YOY:["CPI y/y", v => v.toFixed(1) + "%", "US consumer prices vs a year ago"],
+  UNRATE:["Unemployment", v => v.toFixed(1) + "%", "US unemployment rate"],
+  NFP_CHG:["Payrolls", v => (v > 0 ? "+" : "") + Math.round(v) + "K", "Jobs added last month (non-farm payrolls change)"],
+  A191RL1Q225SBEA:["GDP growth", v => v.toFixed(1) + "%", "US real GDP growth, annualised, last quarter"],
+  WALCL:["Fed balance sheet", v => "$" + (v / 1e6).toFixed(2) + "T", "Total assets held by the Fed. Growing = more liquidity"],
+  GVZCLS:["Gold volatility", v => v.toFixed(1), "CBOE Gold Volatility Index (GVZ): the options market's expected gold moves. High = nervous"]
+};
+function macroSer(k){
+  const M = S.adm.macro || {};
+  if (k === "CPI_YOY") { const c = M.CPIAUCSL || []; return c.slice(12).map((x, i) => [x[0], (x[1] / c[i][1] - 1) * 100]); }
+  if (k === "NFP_CHG") { const c = M.PAYEMS || []; return c.slice(1).map((x, i) => [x[0], x[1] - c[i][1]]); }
+  if (k === "COT_NET") { const l = M.COT_L || [], s = Object.fromEntries((M.COT_S || []).map(x => x)); return l.filter(x => s[x[0]] != null).map(x => [x[0], x[1] - s[x[0]]]); }
+  return M[k] || [];
+}
+const lastOf = a => a.length ? a[a.length - 1] : null, monthsAgo = n => dayKey(Date.now() - n * 30.4 * 864e5);
+function macroTiles(){
+  return `<section class="w w-lit s12"><div class="wh"><span class="wt">${ico}US macro</span><span class="hint">Latest US data from FRED (Federal Reserve). Lines show the last 12 months; hover for values. Updated daily.</span><span class="chip sm">${(() => { const a = Object.values(S.adm.macro || {}).map(lastOf).filter(Boolean).map(x => x[0]).sort(); return a.length ? "to " + fmtD(a[a.length - 1] + "T12:00:00") : "no data yet"; })()}</span></div>
+    <div class="mgrid">${Object.entries(MAC).map(([k, [name, f, info]]) => { const s = macroSer(k).filter(x => x[0] >= monthsAgo(12)), l = lastOf(s), p = s.length > 1 ? s[s.length - 2] : null, ch = l && p ? l[1] - p[1] : null;
+      return `<div class="tile kt mt"><span class="lab">${name} <span class="hint">${info}</span></span><span class="num">${l ? f(l[1]) : "—"}</span><span class="sub ${ch > 0 ? "pos" : ch < 0 ? "neg" : ""}">${ch == null ? "&nbsp;" : (ch > 0 ? "▲ " : ch < 0 ? "▼ " : "") + f(Math.abs(ch)).replace(/^[+$]/, "") + " vs prior"}</span>${hchart(s.map(x => x[0]), [{ name, col:"#C9B8FF", v:s.map(x => x[1]), f }], 40, { fl:d => fmtD(d + "T12:00:00") })}</div>`; }).join("")}</div></section>`;
+}
+// next FOMC from the MT5 calendar; rate path from the 2Y vs the Fed rate
+function ratesPanel(){
+  const up = macroSer("DFEDTARU"), y2 = macroSer("DGS2"), fu = lastOf(up), t2 = lastOf(y2), mid = fu ? fu[1] - .125 : null, cuts = mid != null && t2 ? (mid - t2[1]) / .25 : null;
+  const now = Date.now(), fomc = (S.adm.events || []).filter(e => /fomc|federal funds|fed interest rate/i.test(e.title) && !/minutes/i.test(e.title) && new Date(e.at) > now).sort((a, b) => new Date(a.at) - new Date(b.at))[0];
+  const days = y2.filter(x => x[0] >= monthsAgo(24)).map(x => x[0]), F = Object.fromEntries(up), T = Object.fromEntries(y2); let lf = null;
+  const fv = days.map(d => (lf = F[d] ?? lf));
+  return `<section class="w s5"><div class="wh"><span class="wt">${ico}Rate path</span><span class="hint">Rough version of Bloomberg WIRP. If the 2-year yield is below the Fed rate, the market expects cuts. Cuts priced ≈ (Fed mid-rate − 2Y yield) ÷ 0.25 over about 2 years. An estimate, not exact odds.</span></div>
+    <div class="pair">${tile(cuts == null ? "Cuts priced" : cuts >= 0 ? "Cuts priced" : "Hikes priced", cuts == null ? "—" : "≈ " + Math.abs(cuts).toFixed(1), "next ~2 years", cuts > 0 ? "pos" : cuts < 0 ? "neg" : "")}${tile("Next Fed decision", fomc ? fmtD(fomc.at) : "—", fomc ? (() => { const m = Math.round((new Date(fomc.at) - now) / 6e4); return m < 1440 ? Math.floor(m / 60) + " h " + (m % 60) + " min" : Math.round(m / 1440) + " days"; })() : "Not in calendar yet")}</div>
+    <div class="frame">${hchart(days, [{ name:"US 2Y", col:"#C9B8FF", v:days.map(d => T[d]), f:v => v.toFixed(2) + "%" }, { name:"Fed rate", col:"#E3B565", v:fv, f:v => v.toFixed(2) + "%", fill:false }], 120, { fl:d => fmtD(d + "T12:00:00") })}</div></section>`;
+}
+function cotPanel(){
+  const net = macroSer("COT_NET").slice(-104), M = S.adm.macro || {}, L = Object.fromEntries(M.COT_L || []), Sh = Object.fromEntries(M.COT_S || []), OI = Object.fromEntries(M.COT_OI || []), X = Object.fromEntries(M.XAU || []);
+  const l = lastOf(net), p = net.length > 1 ? net[net.length - 2] : null, d = l && l[0], k = n => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(Math.round(n)).toLocaleString();
+  const gold = net.map(x => { for (let i = 0; i < 6; i++) { const v = X[dayKey(new Date(x[0] + "T12:00:00").getTime() + i * 864e5)]; if (v != null) return v; } return null; });
+  const all = net.map(x => x[1]), pct = l && all.length ? Math.round(all.filter(v => v <= l[1]).length * 100 / all.length) : null;
+  return `<section class="w s7"><div class="wh"><span class="wt">${ico}Gold positioning · COT</span><span class="hint">CFTC Commitments of Traders, COMEX gold. Managed money = hedge funds and CTAs. Net = long − short contracts. Very high net long can mean a crowded trade. Weekly (Tuesday data, out Friday).</span><span class="chip sm">${d ? fmtD(d + "T12:00:00") : "no data yet"}</span></div>
+    <div class="grid4">${tile("Funds net", l ? k(l[1]) : "—", "contracts", l && l[1] > 0 ? "pos" : "neg")}${tile("Week change", l && p ? k(l[1] - p[1]) : "—", "contracts", l && p ? cls(l[1] - p[1]) : "")}${tile("Long / short", d && Sh[d] ? (L[d] / Sh[d]).toFixed(1) + " ×" : "—", d ? Math.round(L[d] * 100 / (L[d] + Sh[d])) + "% long" : "")}${tile("vs 2 years", pct == null ? "—" : pct + "%", "percentile", pct >= 85 ? "neg" : pct <= 15 ? "pos" : "")}</div>
+    <div class="frame">${hchart(net.map(x => x[0]), [{ name:"Funds net long", col:"#3DF5B0", v:net.map(x => x[1]), f:k, zero:true }, { name:"Gold", col:"#E3B565", v:gold, f:v => px(v), fill:false }], 130, { fl:d => "Week of " + fmtD(d + "T12:00:00") })}</div></section>`;
+}
+// actual vs forecast for every past high-impact release, with gold's move after it (pips)
+function surprisePanel(){
+  const evs = (S.adm.events || []).filter(e => new Date(e.at) < Date.now() && e.actual != null).sort((a, b) => new Date(b.at) - new Date(a.at)).slice(0, 40);
+  const mv = v => v == null ? `<span class="mut">—</span>` : `<span class="${cls(v)}">${fmtPips(v)}</span>`;
+  const by = {}; evs.forEach(e => { if (e.forecast == null || e.move_60 == null) return; const t = EVTYPE(e.title), o = by[t] = by[t] || { n:0, same:0 }; o.n++; if (Math.sign(e.actual - e.forecast) === Math.sign(e.move_60)) o.same++; });
+  return `<section class="w s8"><div class="wh"><span class="wt">${ico}Release surprises</span><span class="hint">Like Bloomberg ECO: each high-impact USD release, actual vs forecast, and how many pips gold moved 15 and 60 minutes after it. Surprise = actual − forecast. Reactions come from the price your EAs report.</span><span class="acts">${Object.entries(by).map(([t, o]) => `<span class="chip sm" title="How often gold moved the same way as the surprise">${t} ${Math.round(o.same * 100 / o.n)}% same way</span>`).join("")}</span></div>
+    <div class="tbox tight" style="max-height:340px;overflow:auto"><table><thead><tr><th>Release</th><th class="r">Actual</th><th class="r">Forecast</th><th class="r">Surprise</th><th class="r">Gold 15 m</th><th class="r">Gold 60 m</th></tr></thead><tbody>
+    ${evs.map(e => { const s = e.forecast == null ? null : e.actual - e.forecast; return `<tr><td><b style="font-weight:600">${esc(e.title)}</b><br><span class="mut xs">${fmtDT(e.at)}</span></td><td class="r">${e.actual}</td><td class="r mut">${e.forecast ?? "—"}</td><td class="r ${s > 0 ? "pos" : s < 0 ? "neg" : "mut"}">${s == null ? "—" : (s > 0 ? "+" : "") + +s.toFixed(3)}</td><td class="r">${mv(e.move_15)}</td><td class="r">${mv(e.move_60)}</td></tr>`; }).join("") || emptyRow(6, "Fills in as releases come out.")}</tbody></table></div></section>`;
+}
+function gvzPanel(){
+  const g = macroSer("GVZCLS"), G = Object.fromEntries(g), vals = g.filter(x => x[0] >= monthsAgo(12)), med = vals.map(x => x[1]).sort((a, b) => a - b)[Math.floor(vals.length / 2)];
+  const rows = S.strategies.filter(s => !s.archived).map(s => { const c = S.adm.setups.filter(x => x.strategy_id === s.id && ["tp","sl","be"].includes(x.status) && x.closed_at), at = x => { for (let i = 0; i < 5; i++) { const v = G[dayKey(new Date(x.closed_at).getTime() - i * 864e5)]; if (v != null) return v; } return null; };
+    return [s, lbStats(c.filter(x => at(x) > med)), lbStats(c.filter(x => at(x) != null && at(x) <= med))]; });
+  const wr = st => st.n ? `${Math.round(st.wr)}% <span class="mut xs">· ${st.n}</span>` : `<span class="mut">—</span>`;
+  return `<section class="w s4"><div class="wh"><span class="wt">${ico}Gold volatility · GVZ</span><span class="hint">The options market's expected gold volatility. Table: each strategy's win rate when GVZ was above vs below its 12-month middle value.</span></div>
+    <div class="frame">${hchart(vals.map(x => x[0]), [{ name:"GVZ", col:"#FF8FA3", v:vals.map(x => x[1]), f:v => v.toFixed(1) }], 90, { fl:d => fmtD(d + "T12:00:00") })}</div>
+    <div class="tbox tight"><table><thead><tr><th></th><th class="r">High vol</th><th class="r">Low vol</th></tr></thead><tbody>${rows.map(([s, a, b]) => `<tr><td>${esc(s.name)}</td><td class="r">${wr(a)}</td><td class="r">${wr(b)}</td></tr>`).join("")}</tbody></table></div></section>`;
+}
+function macroTab(){ return macroTiles() + ratesPanel() + cotPanel() + surprisePanel() + gvzPanel(); }
+
+// demo macro data (preview only)
+function demoMacro(now){
+  let seed = 7; const r = () => (seed = seed * 16807 % 2147483647) / 2147483647, M = {}, day = n => dayKey(now - n * 864e5);
+  const walk = (k, days, step, start, vol, round = 2) => { let v = start; const a = []; for (let d = days; d >= 0; d -= step) { v += (r() - .5) * vol; a.push([day(d), +v.toFixed(round)]); } M[k] = a; };
+  walk("DGS2", 1095, 1, 4.6, .06); walk("DGS10", 1095, 1, 4.3, .05); walk("DFII10", 1095, 1, 2.0, .04); walk("T10YIE", 1095, 1, 2.3, .02); walk("DTWEXBGS", 1095, 1, 121, .45, 1);
+  walk("GVZCLS", 1095, 1, 17, 1.1, 1); walk("UNRATE", 1095, 30, 4.0, .12, 1); walk("WALCL", 1095, 7, 7.2e6, 2.5e4, 0); walk("A191RL1Q225SBEA", 1095, 91, 2.4, 1.6, 1);
+  M.DFEDTARU = []; for (let d = 1095; d >= 0; d--) M.DFEDTARU.push([day(d), d > 500 ? 5.5 : d > 300 ? 5.0 : d > 120 ? 4.5 : 4.25]);
+  let c = 300, p = 157000; M.CPIAUCSL = []; M.PAYEMS = []; for (let d = 1095; d >= 0; d -= 30) { c *= 1 + .0022 + (r() - .5) * .002; p += 150 + (r() - .5) * 200; M.CPIAUCSL.push([day(d), +c.toFixed(2)]); M.PAYEMS.push([day(d), Math.round(p)]); }
+  M.COT_L = []; M.COT_S = []; M.COT_OI = []; let l = 190000, s = 45000; for (let d = 728; d >= 0; d -= 7) { l += (r() - .5) * 14000; s += (r() - .5) * 6000; M.COT_L.push([day(d), Math.round(l)]); M.COT_S.push([day(d), Math.round(Math.max(15000, s))]); M.COT_OI.push([day(d), 520000]); }
+  let x = 2650; M.XAU = []; for (let d = 728; d >= 0; d--) { x *= 1 + .0011 + (r() - .5) * .018; M.XAU.push([day(d), +x.toFixed(1)]); }
+  const k = 4132 / M.XAU[M.XAU.length - 1][1]; M.XAU.forEach(a => a[1] = +(a[1] * k).toFixed(1));
+  return M;
+}
+
+// ===== Scoring page: tabs, banner, risk, market, AI extras =====
+const STABS = [["scores","Scores"],["risk","Risk"],["market","Market"],["macro","Macro"],["ai","AI"],["alerts","Alerts"]];
+const XAU_USD_PER_PRICE = 100;   // 1 lot XAUUSD = 100 oz: $100 per $1 move ($10 per pip)
+const tile = (k, v, sub = "", c = "") => `<div class="tile kt"><span class="lab">${k}</span><span class="num ${c}">${v}</span>${sub ? `<span class="sub">${sub}</span>` : ""}</div>`;
+const usd = v => (v < 0 ? "−$" : "$") + Math.round(Math.abs(v)).toLocaleString();
+const runningIds = () => S.strategies.filter(s => !s.archived && (s.admin_status || "active") === "active" && S.adm.links.some(l => l.strategy_id === s.id && l.status === "running")).map(s => s.id);
+
+// --- countdown banner + pause all ---
+function eventBanner(){
+  const now = Date.now(), ev = (S.adm.events || []).filter(e => { const t = new Date(e.at).getTime(); return t > now - 30 * 6e4 && t < now + 3 * 36e5; }).sort((a, b) => new Date(a.at) - new Date(b.at))[0];
+  const paused = S.strategies.filter(s => s.paused_until && new Date(s.paused_until) > now), until = paused.length ? Math.max(...paused.map(s => new Date(s.paused_until).getTime())) : 0;
+  if (!ev && !paused.length) return "";
+  const m = ev ? Math.round((new Date(ev.at) - now) / 6e4) : 0;
+  return `<div class="w s12 evbar">${ev ? `<span class="evdot${m <= 60 ? " hot" : ""}"></span><b>${esc(ev.title)}</b><span class="evt">${m > 0 ? (m < 60 ? m + " min" : Math.floor(m / 60) + " h " + (m % 60) + " min") : "released"}</span><span class="mut sm">${ev.actual != null ? "A " + ev.actual + " · " : ""}F ${ev.forecast ?? "—"} · P ${ev.previous ?? "—"}</span>` : `<b>Strategies paused</b>`}
+    <span class="grow"></span>${paused.length ? `<span class="mut sm">${paused.length} paused until ${new Date(until).toLocaleTimeString(undefined, { hour:"2-digit", minute:"2-digit" })}</span><button type="button" class="chip sm" data-resume-all>Resume now</button>` : `<button type="button" class="glass sm glass-d" data-pause-all="60">Pause all · 1 h</button>`}</div>`;
+}
+
+// --- risk tab ---
+function portfolioPanel(){
+  const ids = runningIds(), w = lbWindow(), list = S.adm.setups.filter(x => ids.includes(x.strategy_id)), st = lbStats(closedIn(list, w)), a = advStats(st), sc = scoreOf(st, a);
+  const dp = {}; st.list.forEach(x => { const k = dayKey(x.closed_at); dp[k] = (dp[k] || 0) + (Number(x.pips) || 0); });
+  const first = Object.keys(dp).sort()[0], days = []; if (first) for (let t = new Date(first + "T12:00:00").getTime(); dayKey(t) <= dayKey(Date.now()); t += 864e5) days.push(dayKey(t));
+  const X = Object.fromEntries((S.adm.macro || {}).XAU || []); (S.adm.prices || []).forEach(r => X[dayKey(r.ts)] = Number(r.price));
+  let c = 0, g = null; const eq = days.map(d => c += dp[d] || 0), gold = days.map(d => (g = X[d] ?? g));
+  return `<section class="w w-lit s8"><div class="wh"><span class="wt">${ico}Portfolio</span><span class="hint">All strategies that are active and running on at least one account, combined as if traded together. Pips from TradingView results; $ assumes 1 lot.</span><span class="chip sm" title="${esc(ids.map(stratName).join(" · "))}">${ids.length} running</span></div>
+    <div class="grid5">${tile("Score", sc ? sc.v : "—", sc ? "Grade " + gradeOf(sc.v)[0] : "", sc && sc.v >= 70 ? "pos" : "")}${tile("Net pips", fmtPips(st.pips), usd(st.pips * 10) + " at 1 lot", cls(st.pips))}${tile("Win rate", st.wr == null ? "—" : Math.round(st.wr) + "%", st.n + " setups")}${tile("Max DD", st.dd ? fmtPips(-st.dd) : "—", "pips", "neg")}${tile("Profit factor", fmtNum(st.pf), "Sharpe " + fmtNum(a.sharpe))}</div>
+    <div class="frame">${hchart(days, [{ name:"Net pips", col:(eq[eq.length - 1] || 0) >= 0 ? "#3DF5B0" : "#FF6B81", v:eq, f:v => fmtPips(v) + " p", zero:true }, { name:"Gold", col:"#E3B565", v:gold, f:v => px(v), fill:false }], 130, { fl:d => fmtD(d + "T12:00:00"), noLegend:true })}</div><div class="legend"><span><i style="background:#3DF5B0"></i>Net pips</span><span><i style="background:#E3B565"></i>Gold (XAUUSD)</span>${S.adm.quote ? `<span class="grow"></span><span>Gold now <b>${px(S.adm.quote.price)}</b></span>` : ""}</div></section>`;
+}
+function exposurePanel(){
+  const pos = S.adm.accounts.flatMap(a => (a.positions || []).map(p => Object.assign({ user:a.user_id }, p)));
+  const lots = pos.reduce((t, p) => t + (+p.lots || 0), 0), risk = pos.filter(p => +p.sl > 0).reduce((t, p) => t + Math.abs(p.open_price - p.sl) * p.lots * XAU_USD_PER_PRICE, 0), fl = pos.reduce((t, p) => t + (+p.profit || 0), 0);
+  const by = {}; pos.forEach(p => { const k = p.strategy_id || "—", o = by[k] = by[k] || { lots:0, risk:0, n:0 }; o.lots += +p.lots || 0; o.n++; if (+p.sl > 0) o.risk += Math.abs(p.open_price - p.sl) * p.lots * XAU_USD_PER_PRICE; });
+  return `<section class="w s4"><div class="wh"><span class="wt">${ico}Exposure now</span><span class="hint">Open positions on every user account right now. Risk if all SL = the loss if every open trade hits its stop loss.</span><span class="chip sm">${pos.length} positions · ${new Set(pos.map(p => p.user)).size} users</span></div>
+    ${tile("Open lots", lots.toFixed(2))}${tile("Risk if all SL", usd(-risk), "", risk ? "neg" : "")}${tile("Floating now", signed(fl), "", cls(fl))}
+    <div class="list">${Object.entries(by).map(([k, o]) => `<div class="kv"><span>${esc(stratName(k))} <span class="mut xs">· ${o.n}</span></span><span>${o.lots.toFixed(2)} lots · <span class="neg">${usd(-o.risk)}</span></span></div>`).join("")}${pos.some(p => !(+p.sl > 0)) ? `<span class="neg xs">${pos.filter(p => !(+p.sl > 0)).length} without SL: risk unknown</span>` : ""}</div></section>`;
+}
+function worstPanel(){
+  const w = lbWindow(), ids = runningIds(), wk = d => { const x = new Date(d); x.setUTCDate(x.getUTCDate() - (x.getUTCDay() + 6) % 7); return dayKey(x); };
+  const ext = list => { const d = {}, k = {}; list.forEach(x => { const p = Number(x.pips) || 0, a = dayKey(x.closed_at), b = wk(x.closed_at); d[a] = (d[a] || 0) + p; k[b] = (k[b] || 0) + p; });
+    const min = o => Object.entries(o).sort((a, b) => a[1] - b[1])[0], max = o => Object.entries(o).sort((a, b) => b[1] - a[1])[0]; return { wd:min(d), ww:min(k), bd:max(d) }; };
+  const rows = S.strategies.filter(s => !s.archived).map(s => [s.name, ext(closedIn(S.adm.setups.filter(x => x.strategy_id === s.id), w))]).concat([["Portfolio", ext(closedIn(S.adm.setups.filter(x => ids.includes(x.strategy_id)), w))]]);
+  const cell = (e, c) => e ? `<span class="${c}">${fmtPips(e[1])}</span> <span class="mut xs">${new Date(e[0] + "T12:00:00").toLocaleDateString(undefined, { day:"numeric", month:"short" })}</span>` : "—";
+  return `<section class="w s6"><div class="wh"><span class="wt">${ico}Worst day &amp; week</span><span class="hint">Biggest losing day and week (and best day) in the selected range, per strategy and combined.</span></div><div class="tbox tight"><table><thead><tr><th></th><th class="r">Worst day</th><th class="r">Worst week</th><th class="r">Best day</th></tr></thead><tbody>
+    ${rows.map(([n, e], i) => `<tr${i === rows.length - 1 ? ' class="tot"' : ""}><td>${esc(n)}</td><td class="r">${cell(e.wd, "neg")}</td><td class="r">${cell(e.ww, "neg")}</td><td class="r">${cell(e.bd, "pos")}</td></tr>`).join("")}</tbody></table></div></section>`;
+}
+// risk of ruin: 2,000 simulated runs of the next 200 setups at a fixed lot
+function ruinPanel(){
+  const r = S.ruin || (S.ruin = { bal:10000, lot:0.1, sid:"portfolio" }), ids = r.sid === "portfolio" ? runningIds() : [r.sid];
+  const p = lbStats(closedIn(S.adm.setups.filter(x => ids.includes(x.strategy_id)), ["0000","9999"])).list.map(x => Number(x.pips) || 0), perPip = 10 * r.lot;
+  let res = null;
+  if (p.length >= 10 && r.bal > 0 && r.lot > 0) {
+    let seed = p.length * 131 + Math.round(r.lot * 1000); const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const hit = { 20:0, 50:0, 100:0 }, fin = [];
+    for (let k = 0; k < 2000; k++) { let b = r.bal, pk = b, dd = 0; for (let i = 0; i < 200 && b > 0; i++) { b += p[Math.floor(rnd() * p.length)] * perPip; pk = Math.max(pk, b); dd = Math.max(dd, (pk - b) / pk); } [20, 50].forEach(t => { if (dd >= t / 100) hit[t]++; }); if (b <= 0) hit[100]++; fin.push(b); }
+    fin.sort((a, b) => a - b); res = { h20:hit[20] / 20, h50:hit[50] / 20, h100:hit[100] / 20, med:fin[1000], p5:fin[100] };
+  }
+  const pc = v => v < 1 && v > 0 ? "<1%" : Math.round(v) + "%";
+  return `<section class="w w-lit s6"><div class="wh"><span class="wt">${ico}Risk of ruin</span><span class="hint">Simulates the next 200 setups 2,000 times by drawing randomly from this strategy's real results, at the lot size you enter. Lose 20% / 50% = chance the balance drops that much from its high at any point. Blow up = balance reaches 0. Likely balance = the middle result after 200 setups; Bad case = 1 in 20 runs end at or below this. $10 per pip per 1 lot (XAUUSD).</span></div>
+    <div class="trio"><label class="field" for="ruinSid">Strategy<select id="ruinSid" data-ruin="sid"><option value="portfolio">Portfolio</option>${S.strategies.filter(s => !s.archived).map(s => `<option value="${esc(s.id)}"${r.sid === s.id ? " selected" : ""}>${esc(s.name)}</option>`).join("")}</select></label>
+      <label class="field" for="ruinBal">Balance ($)<input id="ruinBal" type="number" min="100" step="100" data-ruin="bal" value="${r.bal}"></label><label class="field" for="ruinLot">Lot per setup<input id="ruinLot" type="number" min="0.01" step="0.01" data-ruin="lot" value="${r.lot}"></label></div>
+    ${res ? `<div class="trio">${tile("Lose 20%", pc(res.h20), "drawdown", res.h20 > 25 ? "neg" : "")}${tile("Lose 50%", pc(res.h50), "drawdown", res.h50 > 5 ? "neg" : "")}${tile("Blow up", pc(res.h100), "balance 0", res.h100 > 1 ? "neg" : "pos")}</div><div class="pair">${tile("Likely balance", usd(res.med), "median", cls(res.med - r.bal))}${tile("Bad case", usd(res.p5), "1 in 20", cls(res.p5 - r.bal))}</div>` : `<p class="dim sm">Needs 10+ closed setups.</p>`}</section>`;
+}
+
+// --- scores tab extras ---
+function usersVsSignals(){
+  const w = lbWindow(), setups = {}; S.adm.setups.forEach(x => setups[x.strategy_id + "|" + x.zone_id] = x);
+  const rows = S.strategies.filter(s => !s.archived).map(s => {
+    const sig = lbStats(closedIn(S.adm.setups.filter(x => x.strategy_id === s.id), w)), tr = S.adm.trades.filter(t => t.strategy_id === s.id && t.closed_at && dayKey(t.closed_at) >= w[0] && dayKey(t.closed_at) <= w[1]);
+    const usd$ = tr.reduce((a, t) => a + (+t.profit || 0), 0), wins = tr.filter(t => +t.profit > 0).length;
+    const slip = tr.filter(t => (t.layer || 1) === 1 && setups[s.id + "|" + t.zone_id] && setups[s.id + "|" + t.zone_id].entry).map(t => { const e = setups[s.id + "|" + t.zone_id]; return (t.side === "buy" ? t.open_price - e.entry : e.entry - t.open_price) / pipOf(t.symbol); });
+    return { s, sig, n:tr.length, uwr:tr.length ? wins * 100 / tr.length : null, usd:usd$, slip:slip.length ? slip.reduce((a, x) => a + x, 0) / slip.length : null };
+  });
+  return `<section class="w s12"><div class="wh"><span class="wt">${ico}Signals vs users' MT5</span><span class="hint">Signal = TradingView result. Users = real closed trades on MT5. Entry slip = how many pips worse (+) users entered than the signal, layer 1 only.</span></div>
+    <div class="tbox"><table><thead><tr><th>Strategy</th><th class="r">Signal win</th><th class="r">Signal pips</th><th class="r">User trades</th><th class="r">User win</th><th class="r">Users' P&amp;L</th><th class="r">Avg / trade</th><th class="r">Entry slip</th><th class="r">Gap</th></tr></thead><tbody>
+    ${rows.map(x => { const gap = x.uwr == null || x.sig.wr == null ? null : x.uwr - x.sig.wr; return `<tr><td>${esc(x.s.name)}</td><td class="r">${x.sig.wr == null ? "—" : Math.round(x.sig.wr) + "%"}</td><td class="r ${cls(x.sig.pips)}">${fmtPips(x.sig.pips)}</td><td class="r">${x.n}</td><td class="r">${x.uwr == null ? "—" : Math.round(x.uwr) + "%"}</td><td class="r ${cls(x.usd)}">${x.n ? signed(x.usd) : "—"}</td><td class="r ${cls(x.usd)}">${x.n ? signed(x.usd / x.n) : "—"}</td><td class="r ${x.slip > 1 ? "neg" : ""}">${x.slip == null ? "—" : (x.slip > 0 ? "+" : "") + x.slip.toFixed(1) + " p"}</td><td class="r ${gap < -5 ? "neg" : gap > 5 ? "pos" : "mut"}">${gap == null ? "—" : (gap > 0 ? "+" : "") + Math.round(gap) + "%"}</td></tr>`; }).join("")}</tbody></table></div></section>`;
+}
+// TP/SL optimiser: replays closed setups with other TP/SL distances using their recorded best/worst move (estimate)
+function tpslOptimizer(st){
+  const l = st.list.filter(x => x.mfe != null && x.mae != null && x.entry && x.tp && x.sl);
+  if (l.length < 10) return `<div class="mc"><span class="lab">TP / SL optimiser</span><p class="dim sm">Needs 10+ closed setups with max move data (EA v2.12+).</p></div>`;
+  const T = [.5, .75, 1, 1.25, 1.5], Sx = [.5, .75, 1, 1.25, 1.5], net = (tm, sm) => l.reduce((t, x) => { const pip = pipOf(x.symbol), tp = Math.abs(x.tp - x.entry) / pip * tm, sl = Math.abs(x.entry - x.sl) / pip * sm, up = x.mfe >= tp, dn = -x.mae >= sl;
+    return t + (up && dn ? (x.status === "sl" ? -sl : x.status === "tp" ? tp : 0) : up ? tp : dn ? -sl : 0); }, 0);
+  const g = T.map(tm => Sx.map(sm => net(tm, sm))), all = g.flat(), best = Math.max(...all), mx = Math.max(1, ...all.map(Math.abs));
+  return `<div class="mc"><span class="lab">TP / SL optimiser · ${l.length} setups · estimate <span class="hint">Replays closed setups with smaller or bigger TP and SL (as % of the current distance), using each setup's best and worst move. Green outline = best result. Underlined = current settings.</span></span><div class="tbox tight"><table class="opt"><thead><tr><th>TP ↓ / SL →</th>${Sx.map(s => `<th class="c">${s * 100}%</th>`).join("")}</tr></thead><tbody>
+    ${g.map((r, i) => `<tr><th>${T[i] * 100}%</th>${r.map((v, j) => `<td class="c${v === best ? " best" : ""}${T[i] === 1 && Sx[j] === 1 ? " cur" : ""}" style="background:${v >= 0 ? "rgba(61,245,176," : "rgba(255,107,129,"}${(.06 + .35 * Math.abs(v) / mx).toFixed(2)})">${fmtPips(v)}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>`;
+}
+
+// --- market tab extras ---
+const EVTYPE = t => /non-?farm|nfp/i.test(t) ? "NFP" : /\bcpi\b|consumer price/i.test(t) ? "CPI" : /rate|fomc|fed\b|federal funds/i.test(t) ? "Rates" : "Other";
+function newsReplay(){
+  const now = Date.now(), past = (S.adm.events || []).filter(e => new Date(e.at) < now), types = ["CPI","NFP","Rates","Other"];
+  const rows = S.strategies.filter(s => !s.archived).map(s => {
+    const all = S.adm.setups.filter(x => x.strategy_id === s.id && ["tp","sl","be"].includes(x.status) && x.triggered_at), base = lbStats(all);
+    return [s, base, types.map(t => lbStats(all.filter(x => past.some(e => EVTYPE(e.title) === t && Math.abs(new Date(x.triggered_at) - new Date(e.at)) <= 36e5))))];
+  });
+  const cell = (st, base) => st.n ? `<span class="${st.wr < base.wr - 10 ? "neg" : st.wr > base.wr + 10 ? "pos" : ""}">${Math.round(st.wr)}%</span> <span class="mut xs">${fmtPips(st.pips)} · ${st.n}</span>` : `<span class="mut">—</span>`;
+  return `<section class="w s7"><div class="wh"><span class="wt">${ico}News impact replay</span><span class="hint">Setups triggered within 1 hour of past high-impact USD events. Red = clearly worse than the strategy's normal win rate.</span><span class="chip sm">${past.length} past events</span></div>
+    <div class="tbox tight"><table><thead><tr><th>Strategy</th><th class="r">Normal</th>${types.map(t => `<th class="r">${t}</th>`).join("")}</tr></thead><tbody>
+    ${rows.map(([s, b, c]) => `<tr><td>${esc(s.name)}</td><td class="r">${b.wr == null ? "—" : Math.round(b.wr) + "%"}</td>${c.map(x => `<td class="r">${cell(x, b)}</td>`).join("")}</tr>`).join("")}</tbody></table></div></section>`;
+}
+function priceAt(t){ const P = S.adm.prices || []; let lo = 0, hi = P.length - 1, best = null; while (lo <= hi) { const m = (lo + hi) >> 1; if (new Date(P[m].ts).getTime() <= t) { best = P[m]; lo = m + 1; } else hi = m - 1; } return best && t - new Date(best.ts) < 36e5 ? Number(best.price) : null; }
+function sourceMood(){
+  const g = {}; (S.adm.news || []).filter(n => n.score != null).forEach(n => { const o = g[n.source || "—"] = g[n.source || "—"] || { n:0, sum:0, calls:0, hits:0 }; o.n++; o.sum += n.score;
+    const t = new Date(n.published_at || n.created_at).getTime(), a = priceAt(t), b = priceAt(t + 2 * 36e5);
+    if (a != null && b != null && (n.score > 55 || n.score < 45)) { o.calls++; if ((n.score > 55) === (b > a)) o.hits++; } });
+  const rows = Object.entries(g).sort((a, b) => b[1].n - a[1].n);
+  return `<section class="w s5"><div class="wh"><span class="wt">${ico}Mood by source</span><span class="hint">Hit rate = how often a bullish or bearish headline was followed by gold moving that way within 2 hours.</span></div>
+    <div class="list">${rows.map(([k, o]) => { const m = o.sum / o.n; return `<div class="kv"><span>${esc(k)} <span class="mut xs">· ${o.n}</span></span><span class="acts"><span class="status ${m >= 60 ? "running" : m <= 40 ? "stopped" : "off"}">${Math.round(m)}</span><span class="${o.calls && o.hits / o.calls >= .55 ? "pos" : "mut"} sm" style="min-width:64px;text-align:right">${o.calls ? Math.round(o.hits * 100 / o.calls) + "% hit" : "—"}</span></span></div>`; }).join("") || `<p class="dim sm">No scored news yet.</p>`}</div></section>`;
+}
+function volPanel(){
+  const d = {}; (S.adm.prices || []).forEach(r => { const k = dayKey(r.ts), v = Number(r.price), o = d[k] = d[k] || { hi:v, lo:v }; o.hi = Math.max(o.hi, v); o.lo = Math.min(o.lo, v); });
+  const today = dayKey(Date.now()), keys = Object.keys(d).sort(), rng = k => (d[k].hi - d[k].lo) / .1, past = keys.filter(k => k !== today).map(rng), atr = past.length ? past.reduce((a, x) => a + x, 0) / past.length : null, now = d[today] ? rng(today) : null, ratio = atr && now != null ? now / atr : null;
+  const med = past.slice().sort((a, b) => a - b)[Math.floor(past.length / 2)], wide = new Set(keys.filter(k => k !== today && rng(k) > med)), narrow = new Set(keys.filter(k => k !== today && rng(k) <= med));
+  const rows = S.strategies.filter(s => !s.archived).map(s => { const c = S.adm.setups.filter(x => x.strategy_id === s.id && ["tp","sl","be"].includes(x.status) && x.closed_at); return [s, lbStats(c.filter(x => wide.has(dayKey(x.closed_at)))), lbStats(c.filter(x => narrow.has(dayKey(x.closed_at))))]; });
+  const wr = st => st.n ? `${Math.round(st.wr)}% <span class="mut xs">· ${st.n}</span>` : `<span class="mut">—</span>`;
+  return `<section class="w w-lit s4"><div class="wh"><span class="wt">${ico}Volatility</span><span class="hint">Today's high-to-low range vs the average daily range (ATR) of recent days. The table shows each strategy's win rate on wider-than-usual vs narrower days.</span><span class="chip sm">${keys.length} days</span></div>
+    <div class="pair">${tile("Today's range", now == null ? "—" : Math.round(now) + " p", ratio == null ? "" : (ratio >= 1 ? "▲ " : "▼ ") + Math.round(ratio * 100) + "% of normal", ratio > 1.3 ? "neg" : "")}${tile("Normal (ATR)", atr == null ? "—" : Math.round(atr) + " p", "daily range")}</div>
+    <div class="vbar"><i style="width:${ratio == null ? 0 : Math.min(100, ratio * 50).toFixed(0)}%"></i></div>
+    <div class="tbox tight"><table><thead><tr><th></th><th class="r">Wide days</th><th class="r">Narrow days</th></tr></thead><tbody>${rows.map(([s, a, b]) => `<tr><td>${esc(s.name)}</td><td class="r">${wr(a)}</td><td class="r">${wr(b)}</td></tr>`).join("")}</tbody></table></div></section>`;
+}
+
+// --- AI tab extras ---
+function autoPanel(){
+  const c = S.adm.aiSettings || { auto_pause_news:false, lead_min:30, pause_min:60 }, acts = S.adm.aiActions || [];
+  return `<section class="w s5"><div class="wh"><span class="wt">${ico}Auto-actions</span><span class="hint">When on, every active strategy is paused automatically before each high-impact USD event and resumes by itself afterwards. Every action is logged here; Undo resumes it and it won't pause again for that event.</span><label class="sw"><input type="checkbox" data-ai-set="auto_pause_news"${c.auto_pause_news ? " checked" : ""} aria-label="Auto pause before news"><i></i></label></div>
+    <div class="pair"><label class="field" for="aiLead">Pause before high-impact news (min)<input id="aiLead" type="number" min="5" max="240" data-ai-set="lead_min" value="${c.lead_min}"></label><label class="field" for="aiFor">Resume after event (min)<input id="aiFor" type="number" min="15" max="480" data-ai-set="pause_min" value="${c.pause_min}"></label></div>
+    <div class="list">${acts.slice(0, 12).map(x => `<div class="kv"><span><b style="font-weight:600">${x.action === "pause" ? "Paused" : esc(x.action)} ${esc(stratName(x.strategy_id))}</b><br><span class="mut xs">${esc(x.reason || "")} · ${agoTxt(x.at)}</span></span>${x.undone ? `<span class="mut xs">Undone</span>` : x.until && new Date(x.until) > Date.now() ? `<button type="button" class="chip sm" data-ai-undo="${x.id}">Undo</button>` : `<span class="mut xs">Ended</span>`}</div>`).join("") || `<p class="dim sm">No actions yet.</p>`}</div></section>`;
+}
+function notesPanel(){
+  const notes = S.adm.aiNotes || [];
+  return `<section class="w s12"><div class="wh"><span class="wt">${ico}Strategy profiles</span><span class="hint">The AI's short profile of each strategy: when it works, when it fails, what to watch. Updated with each weekly report.</span><span class="chip sm">AI · weekly</span></div>
+    <div class="notes4">${S.strategies.filter(s => !s.archived).map(s => { const n = notes.find(x => x.strategy_id === s.id); return `<div class="pnote"><b>${esc(s.name)}</b><span class="sm">${n ? esc(n.note) : `<span class="mut">Written with the first weekly report.</span>`}</span></div>`; }).join("")}</div></section>`;
+}
+function weeklyPanel(){
+  const wk = (S.adm.reviews || []).filter(r => r.kind === "weekly"), sel = S.wk || (wk[0] && wk[0].id), cur = wk.find(r => r.id === sel);
+  return `<section class="w w-lit s7"><div class="wh"><span class="wt">${ico}Weekly reports</span><span class="hint">Written by the AI every Monday 08:30 Dubai from the week's results, news and next week's events. Pick older weeks from the list.</span><span class="acts">${wk.length ? `<select class="cell-sel" id="wkSel" aria-label="Report">${wk.map(r => `<option value="${r.id}"${r.id === sel ? " selected" : ""}>Week of ${fmtD(r.created_at)}</option>`).join("")}</select>` : ""}<button type="button" class="glass sm" data-ai-weekly ${S.aiBusy ? "disabled" : ""}>${S.aiBusy === "weekly" ? "Writing…" : "Write now"}</button></span></div>
+    <div class="brief">${cur ? esc(cur.summary) : `<span class="dim sm">Written every Monday 08:30 Dubai.</span>`}</div></section>`;
+}
+
+function renderScoring(){
+  for (const k in HC) delete HC[k];
+  const tab = S.stab || "scores", nAlerts = scoringAlerts().length, f = S.lb;
+  const bar = `<div class="w s12 sbar"><div class="tabs2">${STABS.map(([k, l]) => `<button type="button" data-stab="${k}" class="${tab === k ? "on" : ""}">${l}${k === "alerts" && nAlerts ? ` <b>${nAlerts}</b>` : ""}</button>`).join("")}</div>
+    <div class="seg">${LB_RANGES.map(([v, l]) => `<button type="button" data-lbr="${v}" class="${f.range === v ? "on" : ""}">${l}</button>`).join("")}</div>
+    ${f.range === "custom" ? `<span class="acts"><input type="date" class="cell-sel" data-lbf="from" value="${f.from}" aria-label="From"><input type="date" class="cell-sel" data-lbf="to" value="${f.to}" aria-label="To"></span>` : ""}</div>`;
+  let body = "";
+  if (tab === "scores") { const [scores, , detail] = scoreParts(); body = scores + detail + usersVsSignals() + comparePanel() + corrPanel(); }
+  if (tab === "risk") body = portfolioPanel() + exposurePanel() + ruinPanel() + worstPanel();
+  if (tab === "market") { const [mood, brief, chart, events, svs, news, sources] = sentimentParts(), [, live] = scoreParts(); const sp = (h, n) => h.replace(/class="w( w-lit)? s\d+/, (m, l) => `class="w${l || ""} s${n}`); body = mood + chart + sp(volPanel(), 5) + newsReplay() + events + live + sourceMood() + sp(svs, 7) + sp(brief, 5) + news + sources; }
+  if (tab === "macro") body = macroTab();
+  if (tab === "ai") body = aiPanel() + autoPanel() + weeklyPanel() + notesPanel();
+  if (tab === "alerts") body = alertsPanel() + rulesPanel();
+  $("page-admin-scoring").innerHTML = bar + (tab === "alerts" ? eventBanner() : "") + body;
+  const c = $("aiChat"); if (c) c.scrollTop = c.scrollHeight;
+}
+
 // Calendar
 function renderAdminCalendar(){
   const A = S.adm, f = S.cStrat;
@@ -1920,6 +2656,10 @@ function renderAdminCalendar(){
 
 // ---------- events ----------
 const main = document.querySelector("main");
+main.addEventListener("click", e => {
+  const row = e.target.closest("[data-lb-open]"); if (!row || e.target.closest("button,a")) return;
+  S.lb.selId = row.dataset.lbOpen; renderScoring(); $("lbBox").scrollIntoView({ behavior:"smooth", block:"start" });
+});
 main.addEventListener("click", async e => {
   const t = e.target.closest("button"); if (!t || t.closest(".topbar")) return;
   const d = t.dataset;
@@ -1979,6 +2719,27 @@ main.addEventListener("click", async e => {
     try { await api.markPaid(p.id); toast("Marked paid. Account extended."); } catch (x) { toast("Could not update: " + x.message); } return renderAdminPayments(); }
   if (d.resolveChk) { const c = checks().find(x => x.id === d.resolveChk); try { for (const x of c.items) if (x.alert) await api.markAlertsRead(x.alert.id); } catch (x) { toast("Could not update: " + x.message); } renderControl(); return bell(); }
   if (d.sr) { S.sr = +d.sr; return renderAdminStrategies(); }
+  if (d.lbr) { S.lb.range = d.lbr; return renderScoring(); }
+  if (d.lbsort) { S.lb.dir = S.lb.sort === d.lbsort ? -S.lb.dir : 1; S.lb.sort = d.lbsort; return renderScoring(); }
+  if (d.lbClose !== undefined) { S.lb.selId = null; return renderScoring(); }
+  if (d.adminPause) return setAdminStatus(d.adminPause, "paused");
+  if (d.sf) { S.sf = d.sf; return renderScoring(); }
+  if (d.aiReview !== undefined) { S.aiBusy = "review"; renderScoring(); try { await api.aiReview(); toast("AI review ready."); } catch (x) { toast("AI review failed: " + x.message); } S.aiBusy = null; return renderScoring(); }
+  if (d.aiOk || d.aiNo) { const rv = S.adm.reviews.find(r => r.kind !== "weekly"), x = rv.suggestions[+(d.aiOk || d.aiNo)];
+    if (d.aiOk) { const before = (S.strategies.find(s => s.id === x.strategy_id) || {}).admin_status || "active"; await setAdminStatus(x.strategy_id, x.action === "pause" ? "paused" : "active"); if (((S.strategies.find(s => s.id === x.strategy_id) || {}).admin_status || "active") === before) return; }
+    x.state = d.aiOk ? "approved" : "dismissed"; try { await api.saveReview(rv); } catch (e) { toast("Could not save: " + e.message); } return renderScoring(); }
+  if (d.atab) { S.atab = d.atab; return renderScoring(); }
+  if (d.stab) { S.stab = d.stab; return renderScoring(); }
+  if (d.pauseAll) { if (!await ask("Pause all running strategies for 1 hour?", "No new trades on any account until then. Open trades are still managed. Trading resumes by itself.", "Pause all · 1 h")) return;
+    try { toast(`${await api.pauseAll(+d.pauseAll)} strategies paused for 1 h.`); } catch (x) { toast("Could not pause: " + x.message); } return renderScoring(); }
+  if (d.resumeAll !== undefined) { try { await api.pauseAll(0); toast("Resumed."); } catch (x) { toast("Could not resume: " + x.message); } return renderScoring(); }
+  if (d.aiUndo) { try { await api.undoAiAction(+d.aiUndo); toast("Undone. It won't pause again for this event."); } catch (x) { toast("Could not undo: " + x.message); } return renderScoring(); }
+  if (d.aiWeekly !== undefined) { S.aiBusy = "weekly"; renderScoring(); try { const r = await api.aiWeekly(); S.wk = r.id; toast("Weekly report ready."); } catch (x) { toast("Report failed: " + x.message); } S.aiBusy = null; return renderScoring(); }
+  if (d.aiWhy) { const a = scoringAlerts()[+d.aiWhy]; if (!a) return; S.why = { t:a.title }; renderScoring();
+    try { S.why.a = await api.aiWhy(`Explain this alert in 3 short sentences: why it happened and what I should do. Alert: ${a.title}. Details: ${a.sub}`); } catch (x) { S.why = null; toast("AI failed: " + x.message); } return renderScoring(); }
+  if (d.lf) { S.lf = d.lf; return renderScoring(); }
+  if (d.ruleDel) { try { await api.setRule(+d.ruleDel, null); } catch (x) { toast("Could not remove: " + x.message); } return renderScoring(); }
+  if (d.srcDel) { if (!await ask("Remove this news source?", "The collector stops reading it. News already collected stays.", "Remove", true)) return; try { await api.setSource(+d.srcDel, null); } catch (x) { toast("Could not remove: " + x.message); } return renderScoring(); }
   if (d.archive) return archiveStrategy(d.archive);
   if (d.restore) { try { await api.setArchived(d.restore, false); toast("Restored. Set it to Active when you're ready."); } catch (x) { toast("Could not restore: " + x.message); } return renderAdminStrategies(); }
   if (d.cmonth) { S.cMonth = new Date(S.cMonth.getFullYear(), S.cMonth.getMonth() + Number(d.cmonth), 1); S.cDay = null; return renderAdminCalendar(); }
@@ -2008,6 +2769,13 @@ main.addEventListener("change", e => {
   if (d.st) { S.st[d.st] = t.value; return renderStatsBody(); }
   if (d.adminSt) return setAdminStatus(d.adminSt, t.value);
   if (t.id === "uSort") { S.us = t.value; return renderUserList(); }
+  if (d.lbf) { S.lb[d.lbf] = t.value; return renderScoring(); }
+  if (d.ruin) { S.ruin[d.ruin] = d.ruin === "sid" ? t.value : Math.max(0, +t.value || 0); return renderScoring(); }
+  if (d.aiSet) { api.setAiSetting({ [d.aiSet]:t.type === "checkbox" ? t.checked : Math.round(+t.value) }).then(() => toast("Saved.")).catch(x => toast("Could not save: " + x.message)); return; }
+  if (t.id === "wkSel") { S.wk = +t.value; return renderScoring(); }
+  if (d.cmp) { const c = S.cmp || [...document.querySelectorAll("[data-cmp]")].map(x => x.value); c[+d.cmp] = t.value; S.cmp = c; return renderScoring(); }
+  if (d.ruleOn) { api.setRule(+d.ruleOn, { enabled:t.checked }).then(renderScoring).catch(x => toast("Could not update: " + x.message)); return; }
+  if (d.srcOn) { api.setSource(+d.srcOn, { enabled:t.checked }).catch(x => toast("Could not update: " + x.message)); return; }
   if (t.id === "rvSel") { S.rvm = t.value; return renderControl(); }
   if (t.id === "pfSt" || t.id === "pfM") { S.pf[t.id === "pfSt" ? "st" : "m"] = t.value; return renderPayRows(); }
   if (t.id === "cStrat") { S.cStrat = t.value; return renderAdminCalendar(); }
@@ -2017,9 +2785,9 @@ main.addEventListener("change", e => {
 main.addEventListener("toggle", e => { const d = e.target.dataset || {}; if (d.u) e.target.open ? S.openU.add(d.u) : S.openU.delete(d.u); if (d.chk) S.openChk = e.target.open ? d.chk : S.openChk === d.chk ? null : S.openChk; }, true);
 async function setAdminStatus(sid, v){
   const s = S.strategies.find(x => x.id === sid), msg = { active:["Turn on " + s.name + " for everyone?", "Users who set it to Running start taking its trades again."], paused:["Pause " + s.name + " for everyone?", "No new trades on any account. Open trades still close when the indicator says so."], stopped:["Stop " + s.name + " for everyone?", "No new trades, and its open trades and pending layers are closed on every user's account."] }[v];
-  if (!await ask(msg[0], msg[1], v === "active" ? "Turn on" : v === "paused" ? "Pause for everyone" : "Stop and close trades", v === "stopped")) return renderStatsBody();
+  if (!await ask(msg[0], msg[1], v === "active" ? "Turn on" : v === "paused" ? "Pause for everyone" : "Stop and close trades", v === "stopped")) return renderPage();
   try { await api.setStrategyStatus(sid, v); toast(`${s.name}: ${v === "active" ? "active" : v + " for everyone"}.`); } catch (x) { toast("Could not change: " + x.message); }
-  S.page === "admin-strategies" ? renderAdminStrategies() : renderStatsBody();
+  renderPage();
 }
 main.addEventListener("input", e => { if (e.target.dataset.ly) preview(e.target.dataset.ly); if (e.target.id === "uSearch") { S.uq = e.target.value; renderUserList(); } if (e.target.id === "pfQ") { S.pf.q = e.target.value; renderPayRows(); } });
 main.addEventListener("submit", async e => {
@@ -2033,8 +2801,26 @@ main.addEventListener("submit", async e => {
     if (typeof r === "string") { m.textContent = cap1(r) + "."; m.className = "msg err"; return; }
     try { const n = await api.importSetups([r], "manual"); toast(n ? "Setup added." : "That setup already exists."); renderAdminStrategies(); } catch (x) { m.textContent = "Not saved: " + x.message; m.className = "msg err"; }
   }
+  if (e.target.id === "aiAsk") {
+    const q = $("aiQ").value.trim(); if (!q) return;
+    S.aiBusy = "ask"; renderScoring();
+    try { await api.aiAsk(q); } catch (x) { toast("AI failed: " + x.message); }
+    S.aiBusy = null; return renderScoring();
+  }
+  if (e.target.id === "ruleAdd") {
+    const row = { strategy_id:$("ruleStrat").value || null, drop_pct:Math.round(+$("ruleDrop").value), days:Math.round(+$("ruleDays").value) };
+    if (!(row.drop_pct >= 1 && row.drop_pct <= 100 && row.days >= 1 && row.days <= 90)) return toast("Use 1–100 % and 1–90 days.");
+    try { await api.addRule(row); toast("Rule added."); } catch (x) { toast("Could not add: " + x.message); }
+    return renderScoring();
+  }
+  if (e.target.id === "srcAdd") {
+    const name = $("srcName").value.trim(), url = $("srcUrl").value.trim();
+    if (!name || !/^https:\/\//.test(url)) return toast("Enter a name and an https:// RSS link.");
+    try { await api.addSource({ name, url }); toast("Source added. The collector reads it on its next run."); } catch (x) { toast("Could not add: " + x.message); }
+    return renderScoring();
+  }
   if (e.target.id === "addStrat") {
-    const m = $("ns-msg"), row = { id:$("ns-id").value.trim().toLowerCase(), name:$("ns-name").value.trim(), symbol:$("ns-sym").value.trim().toUpperCase() || "XAUUSD", timeframe:$("ns-tf").value.trim() || null, description:$("ns-desc").value.trim() || null, entry_rule:(document.querySelector("[data-ns-rule].on") || {}).dataset?.nsRule || "any" };
+    const m = $("ns-msg"), row = { id:$("ns-id").value.trim().toLowerCase(), name:$("ns-name").value.trim(), symbol:$("ns-sym").value.trim().toUpperCase() || "XAUUSD", timeframe:$("ns-tf").value.trim() || null, description:$("ns-desc").value.trim() || null, market:$("ns-mkt").value, entry_rule:(document.querySelector("[data-ns-rule].on") || {}).dataset?.nsRule || "any" };
     const file = $("ns-csv").files[0];
     if (!/^[a-z0-9_]{2,24}$/.test(row.id)) { m.textContent = "ID: 2–24 lowercase letters, numbers or _."; m.className = "msg err"; return; }
     if (S.strategies.some(s => s.id === row.id)) { m.textContent = "That ID is already used."; m.className = "msg err"; return; }
